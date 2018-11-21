@@ -1,0 +1,10 @@
+/target/
+./setings/
+/loja.db.lck
+/loja.db.properties
+/loja.db.script
+/loja.db.log
+/loja.db.tmp/
+*.class
+.project
+.classpath
