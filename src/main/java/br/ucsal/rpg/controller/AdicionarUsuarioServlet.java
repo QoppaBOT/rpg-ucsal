@@ -10,14 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ucsal.rpg.dao.MestreDAO;
+import br.ucsal.rpg.dao.UsuarioDAO;
 import br.ucsal.rpg.model.Mestre;
+import br.ucsal.rpg.model.Usuario;
 
 /**
 
   */
 
-
-@WebServlet("/AdicionarMestreServlet")
+@WebServlet("/AdicionarUsuarioServlet")
 public class AdicionarUsuarioServlet extends HttpServlet {
 
 	/**
@@ -28,23 +29,22 @@ public class AdicionarUsuarioServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String nome = request.getParameter("nome");
-		String descricao = request.getParameter("descricao");
-		
+		String senha = request.getParameter("senha");
+		String email = request.getParameter("email");
 
-		Mestre mestre = new Mestre();
-		mestre.setNome(nome);
-		mestre.setDescricao(descricao);
+		Usuario usuario = new Usuario();
+		usuario.setNome(nome);
+		usuario.setSenha(senha);
+		usuario.setEmail(email);
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.inserir(usuario);
 
-
-		MestreDAO dao = new MestreDAO();
-		dao.inserir(mestre);
-
-		response.sendRedirect("ListarMestreServlet");
+		response.sendRedirect("ListarUsuarioServlet");
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("AdicionarMestreForm.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("AdicionarUsuarioForm.jsp");
 		dispatcher.forward(request, response);
 	}
 

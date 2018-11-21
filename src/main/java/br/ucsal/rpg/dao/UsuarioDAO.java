@@ -35,12 +35,12 @@ public class UsuarioDAO {
 
 	}
 
-	public Usuario getUsuario(Long id) {
+	public Usuario getUsuario(Integer id) {
 		Usuario usuario = null;
 		try {
 			String sql = "select * from usuario where id_Usuario=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
@@ -85,7 +85,7 @@ public class UsuarioDAO {
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getSenha());
 			stmt.setString(3, usuario.getEmail());
-			stmt.setLong(4, usuario.getId());
+			stmt.setInt(4, usuario.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
