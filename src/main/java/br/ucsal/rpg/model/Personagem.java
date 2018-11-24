@@ -16,8 +16,8 @@ public class Personagem {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Personagem(Integer id, String nome, br.ucsal.rpg.model.Raca raca, String maiorPersonalidade, Integer pontosDeVida,
-			Integer pontosDeEnergia, Integer xP, Integer level) {
+	public Personagem(Integer id, String nome, br.ucsal.rpg.model.Raca raca, String maiorPersonalidade,
+			Integer pontosDeVida, Integer pontosDeEnergia, Integer xP, Integer level) {
 		super();
 		this.id = id;
 		this.nome = nome;
