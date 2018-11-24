@@ -38,7 +38,7 @@ public class SalaDAO {
 		try {
 			String sql = "select * from sala where id_Sala=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {

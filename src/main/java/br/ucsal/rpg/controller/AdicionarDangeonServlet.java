@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.rpg.dao.UsuarioDAO;
-import br.ucsal.rpg.model.Usuario;
+import br.ucsal.rpg.dao.DangeonDAO;
+import br.ucsal.rpg.model.Dangeon;
 
 /**
 
   */
 
-@WebServlet("/AdicionarUsuarioServlet")
-public class AdicionarUsuarioServlet extends HttpServlet {
+@WebServlet("/AdicionarDangeonServlet")
+public class AdicionarDangeonServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -27,22 +27,20 @@ public class AdicionarUsuarioServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String nome = request.getParameter("nome");
-		String senha = request.getParameter("senha");
-		String email = request.getParameter("email");
+		String descricao = request.getParameter("descricao");
 
-		Usuario usuario = new Usuario();
-		usuario.setNome(nome);
-		usuario.setSenha(senha);
-		usuario.setEmail(email);
-		UsuarioDAO dao = new UsuarioDAO();
-		dao.inserir(usuario);
+		Dangeon dangeon = new Dangeon();
+		dangeon.setNome(nome);
+		dangeon.setDescricao(descricao);
+		DangeonDAO dao = new DangeonDAO();
+		dao.inserir(dangeon);
 
-		response.sendRedirect("ListarUsuarioServlet");
+		response.sendRedirect("ListarDangeonServlet");
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("AdicionarUsuarioForm.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("AdicionarDangeonForm.jsp");
 		dispatcher.forward(request, response);
 	}
 

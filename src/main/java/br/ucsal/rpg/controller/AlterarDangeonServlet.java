@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.rpg.dao.MestreDAO;
-import br.ucsal.rpg.model.Mestre;
+import br.ucsal.rpg.dao.DangeonDAO;
+import br.ucsal.rpg.model.Dangeon;
 
-@WebServlet("/AlterarMestreServlet")
-public class AlterarMestreServlet extends HttpServlet {
+@WebServlet("/AlterarDangeonServlet")
+public class AlterarDangeonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AlterarMestreServlet() {
+	public AlterarDangeonServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,10 +32,10 @@ public class AlterarMestreServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		MestreDAO dao = new MestreDAO();
-		Mestre mestre = dao.getMestre(id);
-		request.setAttribute("mestre", mestre);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("AlterarMestreForm.jsp");
+		DangeonDAO dao = new DangeonDAO();
+		Dangeon dangeon = dao.getDangeon(id);
+		request.setAttribute("dangeon", dangeon);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("AlterarDangeonForm.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -48,18 +48,16 @@ public class AlterarMestreServlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
+		Dangeon dangeon = new Dangeon();
+		dangeon.setId(id);
+		dangeon.setNome(nome);
+		dangeon.setDescricao(descricao);
+		DangeonDAO dao = new DangeonDAO();
+		dao.altera(dangeon);
 
-		Mestre mestre = new Mestre();
-		mestre.setId(id);
-		mestre.setNome(nome);
-		mestre.setDescricao(descricao);
-
-		MestreDAO dao = new MestreDAO();
-		dao.altera(mestre);
-
-		List<Mestre> lista = dao.getLista();
-		request.setAttribute("mestre", lista);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarMestre.jsp");
+		List<Dangeon> lista = dao.getLista();
+		request.setAttribute("dangeon", lista);
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarDangeon.jsp");
 		requestDispatcher.forward(request, response);
 
 	}

@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.rpg.dao.MestreDAO;
 import br.ucsal.rpg.dao.UsuarioDAO;
-import br.ucsal.rpg.model.Mestre;
 import br.ucsal.rpg.model.Usuario;
 
 @WebServlet("/AlterarUsuarioServlet")
