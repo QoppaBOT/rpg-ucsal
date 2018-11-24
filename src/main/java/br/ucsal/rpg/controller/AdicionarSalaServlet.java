@@ -26,14 +26,6 @@ public class AdicionarSalaServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/*
-	 * private Integer id; 
-	 * private Mestre mestre; 
-	 * private String nome; 
-	 * private String senha; 
-	 * private String descricao;
-	 */
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id_mestre = request.getParameter("mestre");

@@ -16,7 +16,6 @@ import br.ucsal.rpg.model.Mestre;
 
   */
 
-
 @WebServlet("/AdicionarMestreServlet")
 public class AdicionarMestreServlet extends HttpServlet {
 
@@ -29,12 +28,10 @@ public class AdicionarMestreServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
-		
 
 		Mestre mestre = new Mestre();
 		mestre.setNome(nome);
 		mestre.setDescricao(descricao);
-
 
 		MestreDAO dao = new MestreDAO();
 		dao.inserir(mestre);

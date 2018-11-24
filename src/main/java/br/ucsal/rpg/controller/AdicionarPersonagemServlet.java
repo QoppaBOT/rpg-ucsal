@@ -28,7 +28,7 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 			throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		String nome = request.getParameter("nome");
-		// Integer raca_id = request.getParameter("raca_id");
+		Integer raca_id = Integer.parseInt(request.getParameter("raca_id"));
 		String maiorPersonalidade = request.getParameter("maiorPersonalidade");
 		Integer pontosDeVida = Integer.parseInt(request.getParameter("pontosDeVida"));
 		Integer pontosDeEnergia = Integer.parseInt(request.getParameter("pontosDeEnergia"));
@@ -38,7 +38,7 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 		Personagem personagem = new Personagem();
 		personagem.setId(id);
 		personagem.setNome(nome);
-		// personagem.getRaca().setId(raca);
+		personagem.getRaca().setId(raca_id);
 		personagem.setMaiorPersonalidade(maiorPersonalidade);
 		personagem.setPontosDeVida(pontosDeVida);
 		personagem.setPontosDeEnergia(pontosDeEnergia);

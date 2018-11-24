@@ -28,14 +28,14 @@ public class AdicionarMonstroServlet extends HttpServlet {
 			throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		String nome = request.getParameter("nome");
-		Integer Dangeon = Integer.parseInt(request.getParameter("dangeon"));
+		Integer Dangeon_id = Integer.parseInt(request.getParameter("Dangeon_id"));
 		Integer pontosDeVida = Integer.parseInt(request.getParameter("pontosDeVida"));
 		String descricao = request.getParameter("descricao");
 		Monstro monstro = new Monstro();
 
 		monstro.setId(id);
 		monstro.setNome(nome);
-		monstro.getDangeon().setId(Dangeon);
+		monstro.getDangeon().setId(Dangeon_id);
 		monstro.setPontosDeVida(pontosDeVida);
 		monstro.setDescricao(descricao);
 		MonstroDAO dao = new MonstroDAO();
