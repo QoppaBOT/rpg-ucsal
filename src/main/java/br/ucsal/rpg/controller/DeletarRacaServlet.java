@@ -3,30 +3,27 @@ package br.ucsal.rpg.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.rpg.dao.UsuarioDAO;
-import br.ucsal.rpg.model.Usuario;
+import br.ucsal.rpg.dao.RacaDAO;
+import br.ucsal.rpg.model.Raca;
 
 /**
-
-
-  */
-@WebServlet("/ListarUsuarioServlet")
-public class ListarUsuarioServlet extends HttpServlet {
+ * Servlet implementation class DeletarMestreServlet
+ */
+@WebServlet("/DeletarRacaServlet")
+public class DeletarRacaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ListarUsuarioServlet() {
+	public DeletarRacaServlet() {
 		super();
-
 		// TODO Auto-generated constructor stub
 	}
 
@@ -36,11 +33,17 @@ public class ListarUsuarioServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		UsuarioDAO dao = new UsuarioDAO();
-		List<Usuario> usuario = dao.getLista();
-		request.setAttribute("mestre", usuario);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarUsuario.jsp");
-		requestDispatcher.forward(request, response);
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		RacaDAO dao = new RacaDAO();
+		dao.remove(id);
+
+		List<Raca> lista = dao.getLista();
+		request.setAttribute("raca", lista);
+		response.sendRedirect("ListarRacaServlet");
+		// RequestDispatcher requestDispatcher =
+		// request.getRequestDispatcher("ListarClientes.jsp");
+		// requestDispatcher.forward(request, response);
+
 	}
 
 	/**

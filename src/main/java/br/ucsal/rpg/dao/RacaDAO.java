@@ -43,7 +43,7 @@ public class RacaDAO {
 		try {
 			String sql = "select * from raca where id_Raca=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
