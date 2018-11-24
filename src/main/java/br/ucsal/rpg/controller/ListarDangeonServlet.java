@@ -17,7 +17,7 @@ import br.ucsal.rpg.model.Dangeon;
 
 
   */
-@WebServlet("/ListarMestreServlet")
+@WebServlet("/ListarDangeonServlet")
 public class ListarDangeonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

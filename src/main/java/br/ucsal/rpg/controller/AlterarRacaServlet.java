@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.ucsal.rpg.dao.RacaDAO;
 import br.ucsal.rpg.model.Raca;
 
-@WebServlet("/AlterarSalaServlet")
+@WebServlet("/AlterarRacaServlet")
 public class AlterarRacaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -7,12 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>FORMULARIO ADICIONAR PRODUTO</h1>
-	<form action="AdicionarProdutoServlet" method="post">
+	<h1>FORMULARIO ADICIONAR DANGEON</h1>
+	<form action="AdicionarSalaServlet" method="post">
 		Nome:<br> <input type="text" name="nome"><br>
-		Status:<br> <input type="text" name="status"><br>
-		E-mail:<br> <input type="text" name="email"><br>
-		Descrição:<br> <input type="text" name="description"><br>
+		Descrição:<br> <input type="text" name="descricao"><br>
+	
 		<input type="submit" value="Submit"><br>
 	</form>
 
