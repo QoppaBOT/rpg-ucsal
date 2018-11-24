@@ -19,14 +19,13 @@ public class MonstroDAO {
 	}
 
 	public void inserir(Monstro mostro) {
-		String sql = "insert into mostro (nome, dangeon, pontosDeVida, descricao) values (?, ?, ?, ?)";
+		String sql = "insert into monstro (nome, pontosDeVida, descricao) values (?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, mostro.getNome());
-			stmt.setInt(2, mostro.getDangeon().getId());
-			stmt.setInt(3, mostro.getPontosDeVida());
-			stmt.setString(4, mostro.getDescricao());
+			stmt.setInt(2, mostro.getPontosDeVida());
+			stmt.setString(3, mostro.getDescricao());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -47,7 +46,6 @@ public class MonstroDAO {
 				monstro = new Monstro();
 				monstro.setId(rs.getInt("id_Monstro"));
 				monstro.setNome(rs.getString("nome"));
-				monstro.getDangeon().setId(rs.getInt("dangeon"));
 				monstro.setPontosDeVida(rs.getInt("pontosDeVida"));
 				monstro.setDescricao(rs.getString("descricao"));
 			}
@@ -73,7 +71,6 @@ public class MonstroDAO {
 				Monstro monstro = new Monstro();
 				monstro.setId(rs.getInt("id_Monstro"));
 				monstro.setNome(rs.getString("nome"));
-				monstro.getDangeon().setId(rs.getInt("dangeon"));
 				monstro.setPontosDeVida(rs.getInt("pontosDeVida"));
 				monstro.setDescricao(rs.getString("descricao"));
 				monstros.add(monstro);
@@ -87,14 +84,13 @@ public class MonstroDAO {
 	}
 
 	public void altera(Monstro monstro) {
-		String sql = "update monstro set nome=?, dangeon=?, pontosDeVida=?, descricao=? where id_Monstro=?";
+		String sql = "update monstro set nome=?,pontosDeVida=?, descricao=? where id_Monstro=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, monstro.getNome());
-			stmt.setInt(2, monstro.getDangeon().getId());
-			stmt.setInt(3, monstro.getPontosDeVida());
-			stmt.setString(4, monstro.getDescricao());
-			stmt.setInt(5, monstro.getId());
+			stmt.setInt(2, monstro.getPontosDeVida());
+			stmt.setString(3, monstro.getDescricao());
+			stmt.setInt(4, monstro.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

@@ -10,7 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ucsal.rpg.dao.PersonagemDAO;
+import br.ucsal.rpg.dao.RacaDAO;
+import br.ucsal.rpg.dao.SalaDAO;
+import br.ucsal.rpg.dao.UsuarioDAO;
 import br.ucsal.rpg.model.Personagem;
+import br.ucsal.rpg.model.Raca;
+import br.ucsal.rpg.model.Sala;
+import br.ucsal.rpg.model.Usuario;
 
 /**
 
@@ -26,24 +32,41 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Integer id = Integer.parseInt(request.getParameter("id"));
 		String nome = request.getParameter("nome");
-		Integer raca_id = Integer.parseInt(request.getParameter("raca_id"));
+		String raca_id = request.getParameter("raca");
+		String sala_id = request.getParameter("sala");
+		String usuario_id = request.getParameter("usuario");
+		
 		String maiorPersonalidade = request.getParameter("maiorPersonalidade");
 		Integer pontosDeVida = Integer.parseInt(request.getParameter("pontosDeVida"));
 		Integer pontosDeEnergia = Integer.parseInt(request.getParameter("pontosDeEnergia"));
 		Integer xP = Integer.parseInt(request.getParameter("xp"));
 		Integer level = Integer.parseInt(request.getParameter("level"));
+        
+		int id_raca = Integer.parseInt(raca_id);
+ 		int id_sala = Integer.parseInt(sala_id);
+		int id_usuario=Integer.parseInt(usuario_id);
 
+		RacaDAO racaDao= new RacaDAO();
+		SalaDAO salaDao= new SalaDAO();
+		UsuarioDAO usuarioDao = new 	UsuarioDAO();
+		
+		Raca raca = racaDao.getRaca(id_raca);
+		Sala sala= salaDao.getSala(id_sala);
+		Usuario usuario = usuarioDao.getUsuario(id_usuario);
+		
+		
+		
 		Personagem personagem = new Personagem();
-		personagem.setId(id);
 		personagem.setNome(nome);
-		personagem.getRaca().setId(raca_id);
 		personagem.setMaiorPersonalidade(maiorPersonalidade);
 		personagem.setPontosDeVida(pontosDeVida);
 		personagem.setPontosDeEnergia(pontosDeEnergia);
 		personagem.setXP(xP);
 		personagem.setLevel(level);
+		personagem.setRaca(raca);
+		personagem.setSala(sala);
+		personagem.setUsuraio(usuario);
 		PersonagemDAO dao = new PersonagemDAO();
 		dao.inserir(personagem);
 

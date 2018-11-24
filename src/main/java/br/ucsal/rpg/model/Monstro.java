@@ -4,7 +4,6 @@ public class Monstro {
 
 	private Integer id;
 	private String nome;
-	private Dangeon dangeon;
 	private Integer pontosDeVida;
 	private String descricao;
 
@@ -13,11 +12,10 @@ public class Monstro {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Monstro(Integer id, String nome, Dangeon dangeon, Integer pontosDeVida, String descricao) {
+	public Monstro(Integer id, String nome, Integer pontosDeVida, String descricao) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.dangeon = dangeon;
 		this.pontosDeVida = pontosDeVida;
 		this.descricao = descricao;
 	}
@@ -36,14 +34,6 @@ public class Monstro {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Dangeon getDangeon() {
-		return dangeon;
-	}
-
-	public void setDangeon(Dangeon dangeon) {
-		this.dangeon = dangeon;
 	}
 
 	public Integer getPontosDeVida() {

@@ -10,9 +10,27 @@
 	<h1>FORMULARIO ADICIONAR SALA</h1>
 	<form action="AdicionarSalaServlet" method="post">
 		Nome:<br> <input type="text" name="nome"><br>
-		ID_Mestre:<br> <input type="number" name="mestre"><br>
 		Senha:<br> <input type="password" name="Senha"><br>
 		Descrição:<br> <input type="text" name="descricao"><br>
+		
+		 <select name="monstro" >
+		<option value="" selected>Selecione</option>
+			<c:forEach var="monstro" items="${monstro}">
+				<option value="${monstro.id}">${monstro.nome}</option>
+			</c:forEach>
+		</select>
+	
+		<br>
+		
+			 <select name="mestre" >
+		<option value="" selected>Selecione</option>
+			<c:forEach var="mestre" items="${mestre}">
+				<option value="${mestre.id}">${mestre.nome}</option>
+			</c:forEach>
+		</select>
+	
+		<br>
+		
 	
 		<input type="submit" value="Submit"><br>
 	</form>

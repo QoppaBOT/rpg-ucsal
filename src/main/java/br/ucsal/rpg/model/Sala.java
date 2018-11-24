@@ -4,6 +4,8 @@ public class Sala {
 
 	private Integer id;
 	private Mestre mestre;
+	private Monstro monstro;
+
 	private String nome;
 	private String senha;
 	private String descricao;
@@ -13,14 +15,17 @@ public class Sala {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Sala(Integer id, Mestre mestre, String nome, String senha, String descricao) {
+
+	public Sala(Integer id, Mestre mestre, Monstro monstro, String nome, String senha, String descricao) {
 		super();
 		this.id = id;
 		this.mestre = mestre;
+		this.monstro = monstro;
 		this.nome = nome;
 		this.senha = senha;
 		this.descricao = descricao;
 	}
+
 
 	public Integer getId() {
 		return id;
@@ -60,6 +65,16 @@ public class Sala {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+
+	public Monstro getMonstro() {
+		return monstro;
+	}
+
+
+	public void setMonstro(Monstro monstro) {
+		this.monstro = monstro;
 	}
 
 }

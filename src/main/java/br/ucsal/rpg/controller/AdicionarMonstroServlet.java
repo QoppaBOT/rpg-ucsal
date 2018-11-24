@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ucsal.rpg.dao.DangeonDAO;
 import br.ucsal.rpg.dao.MonstroDAO;
+import br.ucsal.rpg.model.Dangeon;
 import br.ucsal.rpg.model.Monstro;
 
 /**
@@ -26,20 +28,23 @@ public class AdicionarMonstroServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Integer id = Integer.parseInt(request.getParameter("id"));
 		String nome = request.getParameter("nome");
-		Integer Dangeon_id = Integer.parseInt(request.getParameter("Dangeon_id"));
 		Integer pontosDeVida = Integer.parseInt(request.getParameter("pontosDeVida"));
 		String descricao = request.getParameter("descricao");
-		Monstro monstro = new Monstro();
+		
+		
 
-		monstro.setId(id);
+		Monstro monstro = new Monstro();
+        
+		
 		monstro.setNome(nome);
-		monstro.getDangeon().setId(Dangeon_id);
 		monstro.setPontosDeVida(pontosDeVida);
 		monstro.setDescricao(descricao);
+		
+		
 		MonstroDAO dao = new MonstroDAO();
 		dao.inserir(monstro);
+		
 
 		response.sendRedirect("ListarPersonagemServlet");
 	}

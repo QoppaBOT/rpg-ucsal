@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ucsal.rpg.model.Personagem;
+import br.ucsal.rpg.model.Raca;
+import br.ucsal.rpg.model.Sala;
+import br.ucsal.rpg.model.Usuario;
 import br.ucsal.rpg.util.ConnectionFactory;
 
 public class PersonagemDAO {
@@ -19,7 +22,7 @@ public class PersonagemDAO {
 	}
 
 	public void inserir(Personagem personagem) {
-		String sql = "insert into personagem (nome, Raca, maiorPersonalidade, pontosDeVida, pontosDeEnergia, XP, level) values (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into personagem (nome,id_raca, maiorPersonalidade, pontosDeVida, pontosDeEnergia, XP, level, id_usuario, id_sala) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -30,6 +33,10 @@ public class PersonagemDAO {
 			stmt.setLong(5, personagem.getPontosDeEnergia());
 			stmt.setInt(6, personagem.getXP());
 			stmt.setInt(7, personagem.getLevel());
+			stmt.setInt(8, personagem.getUsuraio().getId());
+            stmt.setInt(9, personagem.getSala().getId());
+
+
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -73,12 +80,27 @@ public class PersonagemDAO {
 			while (rs.next()) {
 				Personagem personagem = new Personagem();
 				personagem.setId(rs.getInt("id_Personagem"));
-				personagem.setNome(rs.getString("raca"));
 				personagem.setMaiorPersonalidade(rs.getString("maiorPersonalidade"));
 				personagem.setPontosDeEnergia(rs.getInt("pontosDeVida"));
 				personagem.setPontosDeEnergia(rs.getInt("pontosDeEnergia"));
 				personagem.setXP(rs.getInt("xP"));
 				personagem.setLevel(rs.getInt("level"));
+				
+				Raca raca = new Raca();
+			    raca.setId(rs.getInt("id_raca"));
+			    personagem.setRaca(raca);
+			    
+			    Usuario usuario = new Usuario();
+			    usuario.setId(rs.getInt("id_usuario"));
+			    personagem.setUsuraio(usuario);
+			    
+			    Sala sala = new Sala ();
+			    sala.setId(rs.getInt("id_sala"));
+			    personagem.setSala(sala);
+			    
+			    
+			 
+				
 				personagems.add(personagem);
 			}
 			rs.close();

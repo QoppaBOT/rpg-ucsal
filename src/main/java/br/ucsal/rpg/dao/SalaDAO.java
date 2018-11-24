@@ -19,12 +19,13 @@ public class SalaDAO {
 	}
 
 	public void inserir(Sala sala) {
-		String sql = "insert into sala (mestre, nome, descricao) values (?, ?, ?)";
+		String sql = "insert into sala (mestre, nome, descricao, montros) values (?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			//stmt.setString(1, sala.getMetre());
+			stmt.setInt(1, sala.getMestre().getId());
 			stmt.setString(2, sala.getNome());
 			stmt.setString(3, sala.getDescricao());
+			stmt.setInt(4, sala.getMonstro().getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
