@@ -10,21 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.rpg.dao.DangeonDAO;
-import br.ucsal.rpg.model.Dangeon;
+import br.ucsal.rpg.dao.MonstroDAO;
+import br.ucsal.rpg.model.Monstro;
 
 /**
 
 
   */
-@WebServlet("/ListarMestreServlet")
-public class ListarDangeonServlet extends HttpServlet {
+@WebServlet("/ListarMonstroServlet")
+public class ListarMonstroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ListarDangeonServlet() {
+	public ListarMonstroServlet() {
 		super();
 
 		// TODO Auto-generated constructor stub
@@ -36,10 +36,10 @@ public class ListarDangeonServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		DangeonDAO dao = new DangeonDAO();
-		List<Dangeon> dangeons = dao.getLista();
-		request.setAttribute("mestre", dangeons);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarDangeon.jsp");
+		MonstroDAO dao = new MonstroDAO();
+		List<Monstro> monstro = dao.getLista();
+		request.setAttribute("monstro", monstro);
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarMonstro.jsp");
 		requestDispatcher.forward(request, response);
 	}
 
