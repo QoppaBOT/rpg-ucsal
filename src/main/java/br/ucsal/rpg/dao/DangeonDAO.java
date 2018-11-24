@@ -19,7 +19,7 @@ public class DangeonDAO {
 	}
 
 	public void inserir(Dangeon dangeon) {
-		String sql = "insert into cliente (nome, descricao) values (?, ?)";
+		String sql = "insert into dangeon (nome, descricao) values (?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -76,13 +76,13 @@ public class DangeonDAO {
 		}
 	}
 
-	public void altera(Dangeon daongeon) {
-		String sql = "update daongeon set nome=?, descricao=? where id_dangeon=?";
+	public void altera(Dangeon dangeon) {
+		String sql = "update dangeon set nome=?, descricao=? where id_dangeon=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, daongeon.getNome());
-			stmt.setString(2, daongeon.getDescricao());
-			stmt.setInt(3, daongeon.getId());
+			stmt.setString(1, dangeon.getNome());
+			stmt.setString(2, dangeon.getDescricao());
+			stmt.setInt(3, dangeon.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -92,7 +92,7 @@ public class DangeonDAO {
 
 	public void remove(int id) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from daongeon where id_dangeon=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from dangeon where id_dangeon=?");
 			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();

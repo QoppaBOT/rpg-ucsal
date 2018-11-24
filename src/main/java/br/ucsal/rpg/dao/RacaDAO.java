@@ -19,7 +19,7 @@ public class RacaDAO {
 	}
 
 	public void inserir(Raca raca) {
-		String sql = "insert into raca (nome, forca, destreza, contituicao, inteligencia, percepicao, carisma) values (?,?, ?, ?, ?, ?, ?)";
+		String sql = "insert into raca (nome_id, forca, destreza, contituicao, inteligencia, percepicao, carisma) values (?,?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -68,7 +68,7 @@ public class RacaDAO {
 	public List<Raca> getLista() {
 		try {
 			List<Raca> racas = new ArrayList<>();
-			String sql = "select * from cliente";
+			String sql = "select * from raca";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {

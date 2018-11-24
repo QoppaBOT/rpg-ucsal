@@ -37,8 +37,8 @@ public class ListarDangeonServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		DangeonDAO dao = new DangeonDAO();
-		List<Dangeon> dangeons = dao.getLista();
-		request.setAttribute("mestre", dangeons);
+		List<Dangeon> dangeon = dao.getLista();
+		request.setAttribute("dangeon", dangeon);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarDangeon.jsp");
 		requestDispatcher.forward(request, response);
 	}

@@ -12,13 +12,14 @@
 		<ul>
 			<c:forEach var="raca" items="${raca}"> 
 				<li>${raca.nome_id}</li>
-				<li>${raca.forca}</li>	
-				<li>${raca.destreza}</li>			
-				<li>${raca.constituicao}</li>			
-				<li>${raca.inteligencia}</li>			
-				<li>${raca.percepicao}</li>			
-				<li>${raca.carisma}</li>			
-				<a href="AlterarRacaServlet?id=${mestre.id}" type="submit">Editar</a>
+				Forca:<li>${raca.forca}</li>	
+				Destreza:<li>${raca.destreza}</li>			
+				Constituicao:<li>${raca.contituicao}</li>			
+				Inteligencia:<li>${raca.inteligencia}</li>			
+				Percepção:<li>${raca.percepicao}</li>			
+				Carisma: <li>${raca.carisma}</li>		
+					
+				<a href="AlterarRacaServlet?id=${raca.id}" type="submit">Editar</a>
 				<a href="DeletarRacaServlet?id=${Raca.id}" type="submit">Excluir</a>
 			</c:forEach>
 		</ul>

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>FORMULARIO ADICIONAR DANGEON</h1>
-	<form action="AdicionarSalaServlet" method="post">
+	<form action="AdicionarDangeonServlet" method="post">
 		Nome:<br> <input type="text" name="nome"><br>
 		Descrição:<br> <input type="text" name="descricao"><br>
 	
