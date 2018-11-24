@@ -37,14 +37,14 @@ public class MonstroDAO {
 	public Monstro getMonstro(Integer id) {
 		Monstro monstro = null;
 		try {
-			String sql = "select * from monstro where id_Monstro=?";
+			String sql = "select * from monstro where idMonstro=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				monstro = new Monstro();
-				monstro.setId(rs.getInt("id_Monstro"));
+				monstro.setId(rs.getInt("idMonstro"));
 				monstro.setNome(rs.getString("nome"));
 				monstro.setPontosDeVida(rs.getInt("pontosDeVida"));
 				monstro.setDescricao(rs.getString("descricao"));
@@ -69,7 +69,7 @@ public class MonstroDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Monstro monstro = new Monstro();
-				monstro.setId(rs.getInt("id_Monstro"));
+				monstro.setId(rs.getInt("idMonstro"));
 				monstro.setNome(rs.getString("nome"));
 				monstro.setPontosDeVida(rs.getInt("pontosDeVida"));
 				monstro.setDescricao(rs.getString("descricao"));
@@ -84,7 +84,7 @@ public class MonstroDAO {
 	}
 
 	public void altera(Monstro monstro) {
-		String sql = "update monstro set nome=?,pontosDeVida=?, descricao=? where id_Monstro=?";
+		String sql = "update monstro set nome=?,pontosDeVida=?, descricao=? where idMonstro=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, monstro.getNome());
@@ -100,7 +100,7 @@ public class MonstroDAO {
 
 	public void remove(Integer id) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from monstro where id_Monstro=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from monstro where idMonstro=?");
 			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();

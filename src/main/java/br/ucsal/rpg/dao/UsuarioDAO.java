@@ -38,14 +38,14 @@ public class UsuarioDAO {
 	public Usuario getUsuario(Integer id) {
 		Usuario usuario = null;
 		try {
-			String sql = "select * from usuario where id_Usuario=?";
+			String sql = "select * from usuario where idUsuario=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				usuario = new Usuario();
-				usuario.setId(rs.getInt("id_Usuario"));
+				usuario.setId(rs.getInt("idUsuario"));
 			}
 			stmt.close();
 			rs.close();
@@ -63,7 +63,7 @@ public class UsuarioDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
-				usuario.setId(rs.getInt("id_Usuario"));
+				usuario.setId(rs.getInt("idUsuario"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSenha(rs.getString("senha"));
 				usuario.setEmail(rs.getString("email"));
@@ -79,7 +79,7 @@ public class UsuarioDAO {
 	}
 
 	public void altera(Usuario usuario) {
-		String sql = "update usuario set nome=?, senha=?,email=? where id_Usuario=?";
+		String sql = "update usuario set nome=?, senha=?,email=? where idUsuario=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
@@ -95,7 +95,7 @@ public class UsuarioDAO {
 
 	public void remove(Integer id) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from usuario where id_Usuario=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from usuario where idUsuario=?");
 			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();

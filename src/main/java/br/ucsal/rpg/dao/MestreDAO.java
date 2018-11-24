@@ -36,14 +36,14 @@ public class MestreDAO {
 	public Mestre getMestre(Integer id) {
 		Mestre mestre = null;
 		try {
-			String sql = "select * from mestre where id_mestre=?";
+			String sql = "select * from mestre where idMestre=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				mestre = new Mestre();
-				mestre.setId(rs.getInt("id_mestre"));
+				mestre.setId(rs.getInt("idMestre"));
 			}
 			stmt.close();
 			rs.close();
@@ -61,7 +61,7 @@ public class MestreDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Mestre mestre = new Mestre();
-				mestre.setId(rs.getInt("id_Mestre"));
+				mestre.setId(rs.getInt("idMestre"));
 				mestre.setNome(rs.getString("nome"));
 				mestre.setDescricao(rs.getString("descricao"));
 				mestres.add(mestre);
@@ -75,7 +75,7 @@ public class MestreDAO {
 	}
 
 	public void altera(Mestre mestre) {
-		String sql = "update mestre set nome=?, descricao=? where id_mestre=?";
+		String sql = "update mestre set nome=?, descricao=? where idMestre=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, mestre.getNome());
@@ -90,7 +90,7 @@ public class MestreDAO {
 
 	public void remove(Integer id) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from mestre where id_mestre=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from mestre where idMestre=?");
 			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();

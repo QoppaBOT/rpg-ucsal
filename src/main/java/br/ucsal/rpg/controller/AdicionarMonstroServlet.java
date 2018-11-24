@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.rpg.dao.DangeonDAO;
 import br.ucsal.rpg.dao.MonstroDAO;
-import br.ucsal.rpg.model.Dangeon;
 import br.ucsal.rpg.model.Monstro;
 
 /**
@@ -31,20 +29,15 @@ public class AdicionarMonstroServlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		Integer pontosDeVida = Integer.parseInt(request.getParameter("pontosDeVida"));
 		String descricao = request.getParameter("descricao");
-		
-		
 
 		Monstro monstro = new Monstro();
-        
-		
+
 		monstro.setNome(nome);
 		monstro.setPontosDeVida(pontosDeVida);
 		monstro.setDescricao(descricao);
-		
-		
+
 		MonstroDAO dao = new MonstroDAO();
 		dao.inserir(monstro);
-		
 
 		response.sendRedirect("ListarPersonagemServlet");
 	}

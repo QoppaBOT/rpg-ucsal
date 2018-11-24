@@ -26,10 +26,12 @@ public class AdicionarDangeonServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String idMonstro = request.getParameter("idMonstro");
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
 
 		Dangeon dangeon = new Dangeon();
+		//dangeon.setMonstro(idMonstro);
 		dangeon.setNome(nome);
 		dangeon.setDescricao(descricao);
 		DangeonDAO dao = new DangeonDAO();

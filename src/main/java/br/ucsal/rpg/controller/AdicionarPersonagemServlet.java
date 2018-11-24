@@ -36,27 +36,25 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 		String raca_id = request.getParameter("raca");
 		String sala_id = request.getParameter("sala");
 		String usuario_id = request.getParameter("usuario");
-		
+
 		String maiorPersonalidade = request.getParameter("maiorPersonalidade");
 		Integer pontosDeVida = Integer.parseInt(request.getParameter("pontosDeVida"));
 		Integer pontosDeEnergia = Integer.parseInt(request.getParameter("pontosDeEnergia"));
 		Integer xP = Integer.parseInt(request.getParameter("xp"));
 		Integer level = Integer.parseInt(request.getParameter("level"));
-        
-		int id_raca = Integer.parseInt(raca_id);
- 		int id_sala = Integer.parseInt(sala_id);
-		int id_usuario=Integer.parseInt(usuario_id);
 
-		RacaDAO racaDao= new RacaDAO();
-		SalaDAO salaDao= new SalaDAO();
-		UsuarioDAO usuarioDao = new 	UsuarioDAO();
-		
+		Integer id_raca = Integer.parseInt(raca_id);
+		Integer id_sala = Integer.parseInt(sala_id);
+		Integer id_usuario = Integer.parseInt(usuario_id);
+
+		RacaDAO racaDao = new RacaDAO();
+		SalaDAO salaDao = new SalaDAO();
+		UsuarioDAO usuarioDao = new UsuarioDAO();
+
 		Raca raca = racaDao.getRaca(id_raca);
-		Sala sala= salaDao.getSala(id_sala);
+		Sala sala = salaDao.getSala(id_sala);
 		Usuario usuario = usuarioDao.getUsuario(id_usuario);
-		
-		
-		
+
 		Personagem personagem = new Personagem();
 		personagem.setNome(nome);
 		personagem.setMaiorPersonalidade(maiorPersonalidade);
@@ -66,7 +64,7 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 		personagem.setLevel(level);
 		personagem.setRaca(raca);
 		personagem.setSala(sala);
-		personagem.setUsuraio(usuario);
+		personagem.setUsuario(usuario);
 		PersonagemDAO dao = new PersonagemDAO();
 		dao.inserir(personagem);
 

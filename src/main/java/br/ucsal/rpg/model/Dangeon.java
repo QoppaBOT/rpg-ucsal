@@ -3,16 +3,18 @@ package br.ucsal.rpg.model;
 public class Dangeon {
 	private Integer id;
 	private String nome;
+	private Monstro monstro;
 	private String descricao;
 
 	public Dangeon() {
 		super();
 	}
 
-	public Dangeon(Integer id, String nome, String descricao) {
+	public Dangeon(Integer id, String nome, Monstro monstro, String descricao) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.monstro = monstro;
 		this.descricao = descricao;
 	}
 
@@ -38,6 +40,20 @@ public class Dangeon {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	/**
+	 * @return the monstro
+	 */
+	public Monstro getMonstro() {
+		return monstro;
+	}
+
+	/**
+	 * @param monstro the monstro to set
+	 */
+	public void setMonstro(Monstro monstro) {
+		this.monstro = monstro;
 	}
 
 }

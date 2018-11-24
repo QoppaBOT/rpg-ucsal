@@ -19,13 +19,14 @@ public class SalaDAO {
 	}
 
 	public void inserir(Sala sala) {
-		String sql = "insert into sala (mestre, nome, descricao, montros) values (?, ?, ?, ?)";
+		String sql = "insert into sala (idMestre,idDangeon, nome,senha, descricao) values (?, ?, ?, ?,?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, sala.getMestre().getId());
-			stmt.setString(2, sala.getNome());
-			stmt.setString(3, sala.getDescricao());
-			stmt.setInt(4, sala.getMonstro().getId());
+			stmt.setInt(2, sala.getDangeon().getId());
+			stmt.setString(3, sala.getNome());
+			stmt.setString(4, sala.getSenha());
+			stmt.setString(5, sala.getDescricao());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -37,14 +38,14 @@ public class SalaDAO {
 	public Sala getSala(int id) {
 		Sala sala = null;
 		try {
-			String sql = "select * from sala where id_Sala=?";
+			String sql = "select * from sala where idSala=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				sala = new Sala();
-				sala.setId(rs.getInt("id_Sala"));
+				sala.setId(rs.getInt("idSala"));
 				sala.setNome(rs.getString("nome"));
 				sala.setDescricao(rs.getString("descricao"));
 			}
@@ -59,12 +60,12 @@ public class SalaDAO {
 	public List<Sala> getLista() {
 		try {
 			List<Sala> salas = new ArrayList<>();
-			String sql = "select * from cliente";
+			String sql = "select * from Sala";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Sala sala = new Sala();
-				sala.setId(rs.getInt("id_Sala"));
+				sala.setId(rs.getInt("idSala"));
 				sala.setNome(rs.getString("nome"));
 				sala.setDescricao(rs.getString("descricao"));
 				salas.add(sala);
@@ -78,7 +79,7 @@ public class SalaDAO {
 	}
 
 	public void altera(Sala sala) {
-		String sql = "update sala set nome=?, descricao=? where id_Sala=?";
+		String sql = "update sala set nome=?, descricao=? where idSala=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, sala.getNome());
@@ -93,7 +94,7 @@ public class SalaDAO {
 
 	public void remove(int id) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from sala where id_Sala=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from sala where idSala=?");
 			stmt.setLong(1, id);
 			stmt.execute();
 			stmt.close();

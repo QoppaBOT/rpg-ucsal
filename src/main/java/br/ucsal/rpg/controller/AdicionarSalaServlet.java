@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ucsal.rpg.dao.DangeonDAO;
 import br.ucsal.rpg.dao.MestreDAO;
-import br.ucsal.rpg.dao.MonstroDAO;
 import br.ucsal.rpg.dao.SalaDAO;
+import br.ucsal.rpg.model.Dangeon;
 import br.ucsal.rpg.model.Mestre;
-import br.ucsal.rpg.model.Monstro;
 import br.ucsal.rpg.model.Sala;
 
 /**
@@ -30,30 +30,28 @@ public class AdicionarSalaServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id_mestre = request.getParameter("mestre");
-		String id_monstro = request.getParameter("mosntro");
+		String idMestre = request.getParameter("mestre");
+		String idDangeon = request.getParameter("dangeon");
 		String nome = request.getParameter("nome");
 		String senha = request.getParameter("senha");
 		String descricao = request.getParameter("descricao");
 
-		MestreDAO mdao = new MestreDAO();
-
 		Sala sala = new Sala();
 
-		int mestre_id = Integer.parseInt(id_mestre);
-		int monstro_id = Integer.parseInt(id_monstro);
+		int mestre_id = Integer.parseInt(idMestre);
+		int monstro_id = Integer.parseInt(idDangeon);
 
-         MestreDAO mestreDao = new MestreDAO();
-         MonstroDAO monstroDao = new MonstroDAO();
+		MestreDAO mestreDAO = new MestreDAO();
+		DangeonDAO dangeonDAO = new DangeonDAO();
 
-		Mestre mestre = mestreDao.getMestre(mestre_id);
-		Monstro monstro= monstroDao.getMonstro(monstro_id);
-		
+		Mestre mestre = mestreDAO.getMestre(mestre_id);
+		Dangeon dangeon = dangeonDAO.getDangeon(monstro_id);
+
 		sala.setMestre(mestre);
 		sala.setNome(nome);
 		sala.setSenha(senha);
 		sala.setDescricao(descricao);
-		sala.setMonstro(monstro);
+		sala.setDangeon(dangeon);
 		sala.setMestre(mestre);
 
 		SalaDAO dao = new SalaDAO();

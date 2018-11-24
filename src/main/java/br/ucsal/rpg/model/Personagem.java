@@ -4,7 +4,7 @@ public class Personagem {
 	private Integer id;
 	private String nome;
 	private Raca Raca;
-	private Usuario usuraio;
+	private Usuario usuario;
 	private Sala sala;
 
 	private String maiorPersonalidade;
@@ -19,15 +19,13 @@ public class Personagem {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-	public Personagem(Integer id, String nome, br.ucsal.rpg.model.Raca raca, Usuario usuraio, Sala sala,
+	public Personagem(Integer id, String nome, br.ucsal.rpg.model.Raca raca, Usuario usuario, Sala sala,
 			String maiorPersonalidade, Integer pontosDeVida, Integer pontosDeEnergia, Integer xP, Integer level) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		Raca = raca;
-		this.usuraio = usuraio;
+		this.usuario = usuario;
 		this.sala = sala;
 		this.maiorPersonalidade = maiorPersonalidade;
 		this.pontosDeVida = pontosDeVida;
@@ -35,8 +33,6 @@ public class Personagem {
 		XP = xP;
 		this.level = level;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -109,20 +105,26 @@ public class Personagem {
 		this.level = level;
 	}
 
-	public Usuario getUsuraio() {
-		return usuraio;
-	}
-
-	public void setUsuraio(Usuario usuraio) {
-		this.usuraio = usuraio;
-	}
-
 	public Sala getSala() {
 		return sala;
 	}
 
 	public void setSala(Sala sala) {
 		this.sala = sala;
+	}
+
+	/**
+	 * @return the usuario
+	 */
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

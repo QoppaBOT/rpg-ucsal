@@ -19,12 +19,12 @@ public class DangeonDAO {
 	}
 
 	public void inserir(Dangeon dangeon) {
-		String sql = "insert into dangeon (nome, descricao) values (?, ?)";
+		String sql = "insert into Dangeon (idMontro, nome, descricao) values (?, ?,?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, dangeon.getNome());
-			stmt.setString(2, dangeon.getDescricao());
+			stmt.setString(3, dangeon.getDescricao());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -36,14 +36,14 @@ public class DangeonDAO {
 	public Dangeon getDangeon(Integer id) {
 		Dangeon dangeon = null;
 		try {
-			String sql = "select * from dangeon where id_dangeon=?";
+			String sql = "select * from dangeon where iddangeon=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				dangeon = new Dangeon();
-				dangeon.setId(rs.getInt("id_dangeon"));
+				dangeon.setId(rs.getInt("iddangeon"));
 				dangeon.setNome(rs.getString("nome"));
 				dangeon.setDescricao(rs.getString("descricao"));
 			}
@@ -63,7 +63,7 @@ public class DangeonDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Dangeon dangeon = new Dangeon();
-				dangeon.setId(rs.getInt("id_dangeon"));
+				dangeon.setId(rs.getInt("iddangeon"));
 				dangeon.setNome(rs.getString("nome"));
 				dangeon.setDescricao(rs.getString("descricao"));
 				dangeons.add(dangeon);
@@ -77,7 +77,7 @@ public class DangeonDAO {
 	}
 
 	public void altera(Dangeon dangeon) {
-		String sql = "update dangeon set nome=?, descricao=? where id_dangeon=?";
+		String sql = "update dangeon set nome=?, descricao=? where iddangeon=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, dangeon.getNome());
@@ -92,7 +92,7 @@ public class DangeonDAO {
 
 	public void remove(int id) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from dangeon where id_dangeon=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from dangeon where iddangeon=?");
 			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();

@@ -22,20 +22,19 @@ public class PersonagemDAO {
 	}
 
 	public void inserir(Personagem personagem) {
-		String sql = "insert into personagem (nome,id_raca, maiorPersonalidade, pontosDeVida, pontosDeEnergia, XP, level, id_usuario, id_sala) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into personagem (idusuario, idraca, idsala, nome,maiorPersonalidade, pontosDeVida, pontosDeEnergia, XP, level) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
+			stmt.setInt(8, personagem.getUsuario().getId());
 			stmt.setString(1, personagem.getNome());
 			stmt.setInt(2, personagem.getRaca().getId());
-			stmt.setString(3, personagem.getMaiorPersonalidade());
-			stmt.setLong(4, personagem.getPontosDeVida());
-			stmt.setLong(5, personagem.getPontosDeEnergia());
-			stmt.setInt(6, personagem.getXP());
-			stmt.setInt(7, personagem.getLevel());
-			stmt.setInt(8, personagem.getUsuraio().getId());
-            stmt.setInt(9, personagem.getSala().getId());
-
+			stmt.setInt(3, personagem.getSala().getId());
+			stmt.setString(4, personagem.getMaiorPersonalidade());
+			stmt.setInt(5, personagem.getPontosDeVida());
+			stmt.setInt(6, personagem.getPontosDeEnergia());
+			stmt.setInt(7, personagem.getXP());
+			stmt.setInt(8, personagem.getLevel());
 
 			stmt.execute();
 			stmt.close();
@@ -48,14 +47,14 @@ public class PersonagemDAO {
 	public Personagem getPersonagem(Long id) {
 		Personagem personagem = null;
 		try {
-			String sql = "select * from personagem where id_Personagem=?";
+			String sql = "select * from personagem where idPersonagem=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				personagem = new Personagem();
-				personagem.setId(rs.getInt("id_Personagem"));
+				personagem.setId(rs.getInt("idPersonagem"));
 				personagem.getRaca().setId(rs.getInt("raca"));
 				personagem.setMaiorPersonalidade(rs.getString("maiorPersonalidade"));
 				personagem.setPontosDeVida(rs.getInt("pontosDeVida"));
@@ -79,28 +78,25 @@ public class PersonagemDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Personagem personagem = new Personagem();
-				personagem.setId(rs.getInt("id_Personagem"));
+				personagem.setId(rs.getInt("idPersonagem"));
 				personagem.setMaiorPersonalidade(rs.getString("maiorPersonalidade"));
 				personagem.setPontosDeEnergia(rs.getInt("pontosDeVida"));
 				personagem.setPontosDeEnergia(rs.getInt("pontosDeEnergia"));
 				personagem.setXP(rs.getInt("xP"));
 				personagem.setLevel(rs.getInt("level"));
-				
+
 				Raca raca = new Raca();
-			    raca.setId(rs.getInt("id_raca"));
-			    personagem.setRaca(raca);
-			    
-			    Usuario usuario = new Usuario();
-			    usuario.setId(rs.getInt("id_usuario"));
-			    personagem.setUsuraio(usuario);
-			    
-			    Sala sala = new Sala ();
-			    sala.setId(rs.getInt("id_sala"));
-			    personagem.setSala(sala);
-			    
-			    
-			 
-				
+				raca.setId(rs.getInt("idraca"));
+				personagem.setRaca(raca);
+
+				Usuario usuario = new Usuario();
+				usuario.setId(rs.getInt("idusuario"));
+				personagem.setUsuario(usuario);
+
+				Sala sala = new Sala();
+				sala.setId(rs.getInt("idsala"));
+				personagem.setSala(sala);
+
 				personagems.add(personagem);
 			}
 			rs.close();
@@ -112,7 +108,7 @@ public class PersonagemDAO {
 	}
 
 	public void altera(Personagem personagem) {
-		String sql = "update personagem set nome=?, raca=?, maiorPersonalidade=?, pontosDeVida=?, pontosDeEnergia=?, xP=?, level=? where id_Personagem=?";
+		String sql = "update personagem set nome=?, raca=?, maiorPersonalidade=?, pontosDeVida=?, pontosDeEnergia=?, xP=?, level=? where idPersonagem=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, personagem.getNome());
@@ -132,7 +128,7 @@ public class PersonagemDAO {
 
 	public void remove(Integer id) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from personagem where id_Personagem=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from personagem where idPersonagem=?");
 			stmt.setLong(1, id);
 			stmt.execute();
 			stmt.close();

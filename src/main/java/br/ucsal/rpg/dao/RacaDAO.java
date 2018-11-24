@@ -19,7 +19,7 @@ public class RacaDAO {
 	}
 
 	public void inserir(Raca raca) {
-		String sql = "insert into raca (nome_id, forca, destreza, contituicao, inteligencia, percepicao, carisma) values (?,?, ?, ?, ?, ?, ?)";
+		String sql = "insert into raca (nome, forca, destreza, contituicao, inteligencia, percepicao, carisma) values (?,?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -41,15 +41,15 @@ public class RacaDAO {
 	public Raca getRaca(int id) {
 		Raca raca = null;
 		try {
-			String sql = "select * from raca where id_Raca=?";
+			String sql = "select * from raca where idRaca=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				raca = new Raca();
-				raca.setNome_id(rs.getString("nome_id"));
-				raca.setId(rs.getInt("id_Raca"));
+				raca.setNome_id(rs.getString("nome"));
+				raca.setId(rs.getInt("idRaca"));
 				raca.setForca(rs.getInt("forca"));
 				raca.setDestreza(rs.getInt("destreza"));
 				raca.setContituicao(rs.getInt("contituicao"));
@@ -73,8 +73,8 @@ public class RacaDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Raca raca = new Raca();
-				raca.setNome_id(rs.getString("nome_id"));
-				raca.setId(rs.getInt("id_Raca"));
+				raca.setNome_id(rs.getString("nome"));
+				raca.setId(rs.getInt("idRaca"));
 				raca.setForca(rs.getInt("forca"));
 				raca.setDestreza(rs.getInt("destreza"));
 				raca.setContituicao(rs.getInt("contituicao"));
@@ -92,7 +92,7 @@ public class RacaDAO {
 	}
 
 	public void altera(Raca raca) {
-		String sql = "update raca set nome=?, forca=?, destreza=?, contituicao=?, inteligencia=?, percepicao=?, carisma=? where id_Raca=?";
+		String sql = "update raca set nome=?, forca=?, destreza=?, contituicao=?, inteligencia=?, percepicao=?, carisma=? where idRaca=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, raca.getNome_id());
@@ -112,7 +112,7 @@ public class RacaDAO {
 
 	public void remove(int id) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from raca where id_Raca=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from raca where idRaca=?");
 			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();
