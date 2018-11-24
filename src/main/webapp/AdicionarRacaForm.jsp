@@ -17,8 +17,6 @@
 		Percepcao:<br> <input type="number" name="percepicao"><br>
 		Carisma:<br> <input type="number" name="carisma"><br>
 		
-		
-	
 		<input type="submit" value="Submit"><br>
 	</form>
 
