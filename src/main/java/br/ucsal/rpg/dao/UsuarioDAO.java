@@ -19,7 +19,7 @@ public class UsuarioDAO {
 	}
 
 	public void inserir(Usuario usuario) {
-		String sql = "insert into mestre (nome, senha,email) values (?, ?, ?)";
+		String sql = "insert into usuario (nome, senha,email) values (?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 

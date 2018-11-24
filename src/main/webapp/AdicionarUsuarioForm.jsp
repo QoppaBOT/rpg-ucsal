@@ -10,7 +10,7 @@
 	<h1>FORMULARIO ADICIONAR Usuario</h1>
 	<form action="AdicionarUsuarioServlet" method="post">
 		Nome:<br> <input type="text" name="nome"><br>
-		Senha:<br> <input type="text" name="senha"><br>
+		Senha:<br> <input type="password" name="senha"><br>
 		E-mail:<br> <input type="text" name="email"><br>
 		<input type="submit" value="Submit"><br>
 	</form>

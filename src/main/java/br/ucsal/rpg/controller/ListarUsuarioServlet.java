@@ -37,8 +37,8 @@ public class ListarUsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		UsuarioDAO dao = new UsuarioDAO();
-		List<Usuario> usuarios = dao.getLista();
-		request.setAttribute("mestre", usuarios);
+		List<Usuario> usuario = dao.getLista();
+		request.setAttribute("usuario", usuario);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarUsuario.jsp");
 		requestDispatcher.forward(request, response);
 	}

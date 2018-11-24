@@ -49,11 +49,13 @@ public class AlterarUsuarioServlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String senha = request.getParameter("senha");
 		String email = request.getParameter("email");
+
 		Usuario usuario = new Usuario();
 		usuario.setId(id);
 		usuario.setNome(nome);
 		usuario.setEmail(email);
 		usuario.setSenha(senha);
+
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.altera(usuario);
 
