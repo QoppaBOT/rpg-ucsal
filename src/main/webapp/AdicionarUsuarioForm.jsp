@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>FORMULARIO ADICIONAR Usuario</h1>
+	<h1>FORMULARIO ADICIONAR USIARIO</h1>
 	<form action="AdicionarUsuarioServlet" method="post">
 		Nome:<br> <input type="text" name="nome"><br>
 		Senha:<br> <input type="password" name="senha"><br>

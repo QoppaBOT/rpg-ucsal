@@ -37,8 +37,8 @@ public class AdicionarDangeonServlet extends HttpServlet {
 		dangeon.setDescricao(descricao);
 
 		MonstroDAO monstroDAO = new MonstroDAO();
-		int id = Integer.parseInt(idMonstro);
-		Monstro monstro = monstroDAO.getMonstro(id);
+		int idmons = Integer.parseInt(idMonstro);
+		Monstro monstro = monstroDAO.getMonstro(idmons);
 		dangeon.setMonstro(monstro);
 		DangeonDAO dao = new DangeonDAO();
 		dao.inserir(dangeon);

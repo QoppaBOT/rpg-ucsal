@@ -14,7 +14,7 @@
 				<li>${dangeon.id}</li>
 				Nome:<li>${dangeon.nome}</li>	
 				Descrição:<li>${dangeon.descricao}</li>			
-
+				<a href="AlterarDangeonServlet?id=${dangeon.id}" type="submit">Editar</a>
 				<a href="DeletarDangeonServlet?id=${dangeon.id}" type="submit">Excluir</a>
 			</c:forEach>
 		</ul>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>FORMULARIO ALTERAR Mestre</h1>
+	<h1>FORMULARIO ALTERAR MESTRE</h1>
 	<form action="AlterarMestreServlet" method="post">
 		<input type="hidden" name="id" value="${mestre.id}">
 		Nome:<br> <input type="text" name="nome" value="${mestre.nome}"><br>

@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ucsal.rpg.dao.DangeonDAO;
+import br.ucsal.rpg.dao.MonstroDAO;
 import br.ucsal.rpg.model.Dangeon;
+import br.ucsal.rpg.model.Monstro;
 
 @WebServlet("/AlterarDangeonServlet")
 public class AlterarDangeonServlet extends HttpServlet {
@@ -49,10 +51,17 @@ public class AlterarDangeonServlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
+
 		Dangeon dangeon = new Dangeon();
 		dangeon.setId(id);
 		dangeon.setNome(nome);
 		dangeon.setDescricao(descricao);
+
+		MonstroDAO monstroDAO = new MonstroDAO();
+		int idmons = Integer.parseInt(idMonstro);
+		Monstro monstro = monstroDAO.getMonstro(idmons);
+		dangeon.setMonstro(monstro);
+
 		DangeonDAO dao = new DangeonDAO();
 		dao.altera(dangeon);
 

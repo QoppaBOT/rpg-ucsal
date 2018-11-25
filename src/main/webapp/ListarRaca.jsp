@@ -5,10 +5,10 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Listagem de mestre</title>
+		<title>Listagem de raca</title>
 	</head>
 	<body>
-		<h3>lista de mestre</h3>
+		<h3>lista de raca</h3>
 		<ul>
 			<c:forEach var="raca" items="${raca}"> 
 				Nome:<li>${raca.nome}</li>

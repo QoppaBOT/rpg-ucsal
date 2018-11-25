@@ -16,8 +16,8 @@
 				Descrição:<li>${monstro.descricao}</li>			
 				
 				<a href="DeletarMonstroServlet?id=${monstro.id}" type="submit">Excluir</a>
-<%-- 				<a href="AlterarMonstroServlet?id=${monstro.id}" type="submit">Alterar</a>
- --%>			</c:forEach>
+				<a href="AlterarMonstroServlet?id=${monstro.id}" type="submit">Alterar</a>
+ 			</c:forEach>
 		</ul>
 	</body>
 </html>

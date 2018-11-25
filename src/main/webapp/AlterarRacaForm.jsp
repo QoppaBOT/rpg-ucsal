@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>FORMULARIO ALTERAR Raca</h1>
+	<h1>FORMULARIO ALTERAR RACA</h1>
 	<form action="AlterarRacaServlet" method="post">
 		<input type="hidden" name="id" value="${raca.id}">
 	
