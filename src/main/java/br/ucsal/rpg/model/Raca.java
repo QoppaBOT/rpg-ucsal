@@ -2,7 +2,7 @@ package br.ucsal.rpg.model;
 
 public class Raca {
 	private Integer id;
-	private String Nome_id;
+	private String nome;
 	private Integer forca;
 	private Integer destreza;
 	private Integer contituicao;
@@ -15,11 +15,11 @@ public class Raca {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Raca(Integer id, String nome_id, Integer forca, Integer destreza, Integer contituicao, Integer inteligencia,
+	public Raca(Integer id, String nome, Integer forca, Integer destreza, Integer contituicao, Integer inteligencia,
 			Integer percepicao, Integer carisma) {
 		super();
 		this.id = id;
-		Nome_id = nome_id;
+		this.nome = nome;
 		this.forca = forca;
 		this.destreza = destreza;
 		this.contituicao = contituicao;
@@ -36,12 +36,12 @@ public class Raca {
 		this.id = id;
 	}
 
-	public String getNome_id() {
-		return Nome_id;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_id(String nome_id) {
-		Nome_id = nome_id;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Integer getForca() {

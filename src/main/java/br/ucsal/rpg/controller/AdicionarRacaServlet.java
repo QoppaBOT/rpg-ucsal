@@ -26,7 +26,7 @@ public class AdicionarRacaServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String nome_id = request.getParameter("nome");
+		String nome = request.getParameter("nome");
 		Integer forca = Integer.parseInt(request.getParameter("forca"));
 		Integer destreza = Integer.parseInt(request.getParameter("destreza"));
 		Integer contituicao = Integer.parseInt(request.getParameter("contituicao"));
@@ -35,7 +35,7 @@ public class AdicionarRacaServlet extends HttpServlet {
 		Integer carisma = Integer.parseInt(request.getParameter("carisma"));
 
 		Raca raca = new Raca();
-		raca.setNome_id(nome_id);
+		raca.setNome(nome);
 		raca.setForca(forca);
 		raca.setDestreza(destreza);
 		raca.setContituicao(contituicao);

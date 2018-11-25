@@ -22,7 +22,7 @@ public class PersonagemDAO {
 	}
 
 	public void inserir(Personagem personagem) {
-		String sql = "insert into personagem (idusuario, idraca, idsala, nome,maiorPersonalidade, pontosDeVida, pontosDeEnergia, XP, level) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into personagem (idusuario, idraca, idsala, nome,maiorPersonalidade, pontosDeVida, pontosDeEnergia, XP, levelxp) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -60,7 +60,7 @@ public class PersonagemDAO {
 				personagem.setPontosDeVida(rs.getInt("pontosDeVida"));
 				personagem.setPontosDeEnergia(rs.getInt("pontosDeEnergia"));
 				personagem.setXP(rs.getInt("xP"));
-				personagem.setLevel(rs.getInt("level"));
+				personagem.setLevel(rs.getInt("levelxp"));
 			}
 			stmt.close();
 			rs.close();
@@ -83,7 +83,7 @@ public class PersonagemDAO {
 				personagem.setPontosDeEnergia(rs.getInt("pontosDeVida"));
 				personagem.setPontosDeEnergia(rs.getInt("pontosDeEnergia"));
 				personagem.setXP(rs.getInt("xP"));
-				personagem.setLevel(rs.getInt("level"));
+				personagem.setLevel(rs.getInt("levelxp"));
 
 				Raca raca = new Raca();
 				raca.setId(rs.getInt("idraca"));
@@ -108,7 +108,7 @@ public class PersonagemDAO {
 	}
 
 	public void altera(Personagem personagem) {
-		String sql = "update personagem set nome=?, raca=?, maiorPersonalidade=?, pontosDeVida=?, pontosDeEnergia=?, xP=?, level=? where idPersonagem=?";
+		String sql = "update personagem set nome=?, raca=?, maiorPersonalidade=?, pontosDeVida=?, pontosDeEnergia=?, xP=?, levelxp=? where idPersonagem=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, personagem.getNome());

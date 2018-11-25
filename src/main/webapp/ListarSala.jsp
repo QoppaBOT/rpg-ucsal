@@ -11,7 +11,7 @@
 		<h3>lista de mestre</h3>
 		<ul>
 			<c:forEach var="sala" items="${sala}"> 
-				<li>${raca.nome_id}</li>
+				Nome:<li>${raca.nome}</li>
 				<a href="AlterarSalaServlet?id=${sala.id}" type="submit">Editar</a>
 				<a href="DeletarSalaServlet?id=${sala.id}" type="submit">Excluir</a>
 			</c:forEach>

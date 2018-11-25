@@ -16,7 +16,7 @@
 		Pontos de energia:<br> <input type="text" name="pontosDeEnergia"><br>
 		xp:<br> <input type="text" name="xP"><br>
 		level:<br> <input type="text" name="level"><br>
-	
+	Usuario:
 	  <select name="usuario" >
 		<option value="" selected>Selecione</option>
 					<c:forEach var="usuario" items="${usuario}"> 
@@ -25,7 +25,7 @@
 		</select>
 	
 		<br>
-		
+		Sala:
 		  <select name="sala" >
 		<option value="" selected>Selecione</option>
 			<c:forEach var="sala" items="${sala}">
@@ -34,7 +34,7 @@
 		</select>
 	
 		<br>
-		
+		Raca:
 			  <select name="raca" >
 		<option value="" selected>Selecione</option>
 			<c:forEach var="raca" items="${raca}">

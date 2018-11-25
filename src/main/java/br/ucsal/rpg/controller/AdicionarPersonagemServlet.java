@@ -33,27 +33,15 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String nome = request.getParameter("nome");
-		String raca_id = request.getParameter("raca");
-		String sala_id = request.getParameter("sala");
-		String usuario_id = request.getParameter("usuario");
+		String idraca = request.getParameter("raca");
+		String idsala = request.getParameter("sala");
+		String idusuario = request.getParameter("usuario");
 
 		String maiorPersonalidade = request.getParameter("maiorPersonalidade");
 		Integer pontosDeVida = Integer.parseInt(request.getParameter("pontosDeVida"));
 		Integer pontosDeEnergia = Integer.parseInt(request.getParameter("pontosDeEnergia"));
 		Integer xP = Integer.parseInt(request.getParameter("xp"));
 		Integer level = Integer.parseInt(request.getParameter("level"));
-
-		Integer id_raca = Integer.parseInt(raca_id);
-		Integer id_sala = Integer.parseInt(sala_id);
-		Integer id_usuario = Integer.parseInt(usuario_id);
-
-		RacaDAO racaDao = new RacaDAO();
-		SalaDAO salaDao = new SalaDAO();
-		UsuarioDAO usuarioDao = new UsuarioDAO();
-
-		Raca raca = racaDao.getRaca(id_raca);
-		Sala sala = salaDao.getSala(id_sala);
-		Usuario usuario = usuarioDao.getUsuario(id_usuario);
 
 		Personagem personagem = new Personagem();
 		personagem.setNome(nome);
@@ -62,8 +50,18 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 		personagem.setPontosDeEnergia(pontosDeEnergia);
 		personagem.setXP(xP);
 		personagem.setLevel(level);
+
+		RacaDAO racaDAO = new RacaDAO();
+		Integer id_raca = Integer.parseInt(idraca);
+		Raca raca = racaDAO.getRaca(id_raca);
 		personagem.setRaca(raca);
+		SalaDAO salaDAO = new SalaDAO();
+		Integer id_sala = Integer.parseInt(idsala);
+		Sala sala = salaDAO.getSala(id_sala);
 		personagem.setSala(sala);
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		Integer id_usuario = Integer.parseInt(idusuario);
+		Usuario usuario = usuarioDAO.getUsuario(id_usuario);
 		personagem.setUsuario(usuario);
 		PersonagemDAO dao = new PersonagemDAO();
 		dao.inserir(personagem);

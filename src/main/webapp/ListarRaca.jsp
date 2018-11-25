@@ -11,7 +11,7 @@
 		<h3>lista de mestre</h3>
 		<ul>
 			<c:forEach var="raca" items="${raca}"> 
-				<li>${raca.nome_id}</li>
+				Nome:<li>${raca.nome}</li>
 				Forca:<li>${raca.forca}</li>	
 				Destreza:<li>${raca.destreza}</li>			
 				Constituicao:<li>${raca.contituicao}</li>			

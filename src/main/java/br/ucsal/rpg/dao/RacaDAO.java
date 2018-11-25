@@ -23,7 +23,7 @@ public class RacaDAO {
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, raca.getNome_id());
+			stmt.setString(1, raca.getNome());
 			stmt.setInt(2, raca.getForca());
 			stmt.setInt(3, raca.getDestreza());
 			stmt.setInt(4, raca.getContituicao());
@@ -48,7 +48,7 @@ public class RacaDAO {
 
 			if (rs.next()) {
 				raca = new Raca();
-				raca.setNome_id(rs.getString("nome"));
+				raca.setNome(rs.getString("nome"));
 				raca.setId(rs.getInt("idRaca"));
 				raca.setForca(rs.getInt("forca"));
 				raca.setDestreza(rs.getInt("destreza"));
@@ -73,7 +73,7 @@ public class RacaDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Raca raca = new Raca();
-				raca.setNome_id(rs.getString("nome"));
+				raca.setNome(rs.getString("nome"));
 				raca.setId(rs.getInt("idRaca"));
 				raca.setForca(rs.getInt("forca"));
 				raca.setDestreza(rs.getInt("destreza"));
@@ -95,7 +95,7 @@ public class RacaDAO {
 		String sql = "update raca set nome=?, forca=?, destreza=?, contituicao=?, inteligencia=?, percepicao=?, carisma=? where idRaca=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, raca.getNome_id());
+			stmt.setString(1, raca.getNome());
 			stmt.setInt(2, raca.getForca());
 			stmt.setInt(3, raca.getDestreza());
 			stmt.setInt(4, raca.getContituicao());
