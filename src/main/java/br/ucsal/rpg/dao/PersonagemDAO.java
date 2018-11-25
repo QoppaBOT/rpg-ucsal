@@ -26,15 +26,15 @@ public class PersonagemDAO {
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setInt(8, personagem.getUsuario().getId());
-			stmt.setString(1, personagem.getNome());
+			stmt.setInt(1, personagem.getUsuario().getId());
 			stmt.setInt(2, personagem.getRaca().getId());
 			stmt.setInt(3, personagem.getSala().getId());
-			stmt.setString(4, personagem.getMaiorPersonalidade());
-			stmt.setInt(5, personagem.getPontosDeVida());
-			stmt.setInt(6, personagem.getPontosDeEnergia());
-			stmt.setInt(7, personagem.getXP());
-			stmt.setInt(8, personagem.getLevel());
+			stmt.setString(4, personagem.getNome());
+			stmt.setString(5, personagem.getMaiorPersonalidade());
+			stmt.setInt(6, personagem.getPontosDeVida());
+			stmt.setInt(7, personagem.getPontosDeEnergia());
+			stmt.setInt(8, personagem.getXP());
+			stmt.setInt(9, personagem.getLevel());
 
 			stmt.execute();
 			stmt.close();
@@ -108,17 +108,20 @@ public class PersonagemDAO {
 	}
 
 	public void altera(Personagem personagem) {
-		String sql = "update personagem set nome=?, raca=?, maiorPersonalidade=?, pontosDeVida=?, pontosDeEnergia=?, xP=?, levelxp=? where idPersonagem=?";
+		String sql = "update personagem set idusuario=?, idraca=?, idsala=?, nome=?, raca=?, maiorPersonalidade=?, pontosDeVida=?, pontosDeEnergia=?, xP=?, levelxp=? where idPersonagem=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, personagem.getNome());
+			stmt.setInt(1, personagem.getUsuario().getId());
 			stmt.setInt(2, personagem.getRaca().getId());
-			stmt.setString(3, personagem.getMaiorPersonalidade());
-			stmt.setInt(4, personagem.getPontosDeVida());
-			stmt.setInt(5, personagem.getPontosDeEnergia());
-			stmt.setInt(6, personagem.getXP());
-			stmt.setInt(7, personagem.getLevel());
-			stmt.setInt(8, personagem.getId());
+			stmt.setInt(3, personagem.getSala().getId());
+			stmt.setString(4, personagem.getNome());
+			stmt.setInt(5, personagem.getRaca().getId());
+			stmt.setString(6, personagem.getMaiorPersonalidade());
+			stmt.setInt(7, personagem.getPontosDeVida());
+			stmt.setInt(8, personagem.getPontosDeEnergia());
+			stmt.setInt(9, personagem.getXP());
+			stmt.setInt(10, personagem.getLevel());
+			stmt.setInt(11, personagem.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

@@ -57,10 +57,6 @@ public class MonstroDAO {
 		return monstro;
 	}
 
-	/*
-	 * private Integer id; private String nome; private Dangeon dangeon; private
-	 * String pontosDeVida; private String descricao;
-	 */
 	public List<Monstro> getLista() {
 		try {
 			List<Monstro> monstros = new ArrayList<>();

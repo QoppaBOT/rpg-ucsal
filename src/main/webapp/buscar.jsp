@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="AlterarProduto" method="get">
+<form action="AlterarMestreServlet" method="get">
 Digite o id do produto: <br /> 
 	<input type="text" name="id"> 
 	<p> 

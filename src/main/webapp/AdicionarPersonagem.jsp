@@ -20,7 +20,7 @@
 	  <select name="usuario" >
 		<option value="" selected>Selecione</option>
 					<c:forEach var="usuario" items="${usuario}"> 
-					<option value="${usuario.id_usuario}">${usuario.nome}</option>
+					<option value="${usuario.id}">${usuario.nome}</option>
 			</c:forEach>
 		</select>
 	

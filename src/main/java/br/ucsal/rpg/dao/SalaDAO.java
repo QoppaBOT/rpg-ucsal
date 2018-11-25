@@ -79,12 +79,14 @@ public class SalaDAO {
 	}
 
 	public void altera(Sala sala) {
-		String sql = "update sala set nome=?, descricao=? where idSala=?";
+		String sql = "update sala set idMestre=?,idDangeon=?, nome=?, descricao=? where idSala=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, sala.getNome());
-			stmt.setString(2, sala.getDescricao());
-			stmt.setLong(3, sala.getId());
+			stmt.setInt(1, sala.getMestre().getId());
+			stmt.setInt(2, sala.getDangeon().getId());
+			stmt.setString(3, sala.getNome());
+			stmt.setString(4, sala.getDescricao());
+			stmt.setLong(5, sala.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
