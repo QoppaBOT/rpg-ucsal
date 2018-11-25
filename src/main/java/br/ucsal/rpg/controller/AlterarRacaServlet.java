@@ -46,7 +46,7 @@ public class AlterarRacaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer nome_id = Integer.parseInt(request.getParameter("nome_id"));
+		Integer nome = Integer.parseInt(request.getParameter("nome"));
 		Integer forca = Integer.parseInt(request.getParameter("forca"));
 		Integer destreza = Integer.parseInt(request.getParameter("destreza"));
 		Integer contituicao = Integer.parseInt(request.getParameter("contituicao"));
@@ -55,7 +55,7 @@ public class AlterarRacaServlet extends HttpServlet {
 		Integer carisma = Integer.parseInt(request.getParameter("carisma"));
 
 		Raca raca = new Raca();
-		raca.setId(nome_id);
+		raca.setId(nome);
 		raca.setForca(forca);
 		raca.setDestreza(destreza);
 		raca.setContituicao(contituicao);

@@ -61,7 +61,7 @@ public class AlterarMonstroServlet extends HttpServlet {
 
 		List<Monstro> lista = dao.getLista();
 		request.setAttribute("monstro", lista);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarMestre.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarMonstro.jsp");
 		requestDispatcher.forward(request, response);
 
 	}

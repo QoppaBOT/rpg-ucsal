@@ -38,7 +38,7 @@ public class MestreDAO {
 		try {
 			String sql = "select * from mestre where idMestre=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {

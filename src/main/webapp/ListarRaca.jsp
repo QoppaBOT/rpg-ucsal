@@ -20,7 +20,7 @@
 				Carisma: <li>${raca.carisma}</li>		
 					
 				<a href="AlterarRacaServlet?id=${raca.id}" type="submit">Editar</a>
-				<a href="DeletarRacaServlet?id=${Raca.id}" type="submit">Excluir</a>
+				<a href="DeletarRacaServlet?id=${raca.id}" type="submit">Excluir</a>
 			</c:forEach>
 		</ul>
 	</body>

@@ -20,7 +20,7 @@
 				<li>${personagem.raca}</li>	
 				<li>${personagem.sala}</li>	
 					
-				<a href="AlterarPersonagemServlet?id=${personagem.id}" type="submit">Editar</a>
+			<%-- 	<a href="AlterarPersonagemServlet?id=${personagem.id}" type="submit">Editar</a> --%>
 				<a href="DeletarPersonagemServlet?id=${personagem.id}" type="submit">Excluir</a>
 			</c:forEach>
 		</ul>
