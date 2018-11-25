@@ -39,7 +39,7 @@ public class MonstroDAO {
 		try {
 			String sql = "select * from monstro where idMonstro=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {

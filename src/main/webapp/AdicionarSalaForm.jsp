@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -12,23 +13,21 @@
 		Nome:<br> <input type="text" name="nome"><br>
 		Senha:<br> <input type="password" name="Senha"><br>
 		Descrição:<br> <input type="text" name="descricao"><br>
-		
-		 <select name="monstro" >
-		<option value="" selected>Selecione</option>
-			<c:forEach var="monstro" items="${monstro}">
-				<option value="${monstro.id}">${monstro.nome}</option>
-			</c:forEach>
-		</select>
-	
-		<br>
-		
-			 <select name="mestre" >
-		<option value="" selected>Selecione</option>
+		Mestre:
+		<select name="mestre" >
+			<option value="" selected>Selecione</option>
 			<c:forEach var="mestre" items="${mestre}">
 				<option value="${mestre.id}">${mestre.nome}</option>
 			</c:forEach>
 		</select>
-	
+		<br>
+		Dangeon: 
+		<select name="dangeon" >
+			<option value="" selected>Selecione</option>
+			<c:forEach var="dangeon" items="${dangeon}">
+				<option value="${dangeon.id}">${dangeon.nome}</option>
+			</c:forEach>
+		</select>
 		<br>
 		
 	

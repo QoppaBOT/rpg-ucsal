@@ -39,12 +39,12 @@ public class AdicionarMonstroServlet extends HttpServlet {
 		MonstroDAO dao = new MonstroDAO();
 		dao.inserir(monstro);
 
-		response.sendRedirect("ListarPersonagemServlet");
+		response.sendRedirect("ListarMonstroServlet");
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("AdicionarPersonagemForm.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("AdicionarMonstroForm.jsp");
 		dispatcher.forward(request, response);
 	}
 

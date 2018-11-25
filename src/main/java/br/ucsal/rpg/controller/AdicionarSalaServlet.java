@@ -37,22 +37,19 @@ public class AdicionarSalaServlet extends HttpServlet {
 		String descricao = request.getParameter("descricao");
 
 		Sala sala = new Sala();
-
-		int mestre_id = Integer.parseInt(idMestre);
-		int monstro_id = Integer.parseInt(idDangeon);
-
-		MestreDAO mestreDAO = new MestreDAO();
-		DangeonDAO dangeonDAO = new DangeonDAO();
-
-		Mestre mestre = mestreDAO.getMestre(mestre_id);
-		Dangeon dangeon = dangeonDAO.getDangeon(monstro_id);
-
-		sala.setMestre(mestre);
 		sala.setNome(nome);
 		sala.setSenha(senha);
 		sala.setDescricao(descricao);
-		sala.setDangeon(dangeon);
+
+		MestreDAO mestreDAO = new MestreDAO();
+		int idmest = Integer.parseInt(idMestre);
+		Mestre mestre = mestreDAO.getMestre(idmest);
 		sala.setMestre(mestre);
+
+		DangeonDAO dangeonDAO = new DangeonDAO();
+		int iddang = Integer.parseInt(idDangeon);
+		Dangeon dangeon = dangeonDAO.getDangeon(iddang);
+		sala.setDangeon(dangeon);
 
 		SalaDAO dao = new SalaDAO();
 		dao.inserir(sala);

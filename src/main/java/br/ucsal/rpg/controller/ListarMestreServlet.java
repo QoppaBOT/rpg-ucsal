@@ -37,8 +37,8 @@ public class ListarMestreServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		MestreDAO dao = new MestreDAO();
-		List<Mestre> mestres = dao.getLista();
-		request.setAttribute("mestre", mestres);
+		List<Mestre> mestre = dao.getLista();
+		request.setAttribute("mestre", mestre);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarMestre.jsp");
 		requestDispatcher.forward(request, response);
 	}

@@ -22,8 +22,8 @@ public class DangeonDAO {
 		String sql = "insert into Dangeon (idMontro, nome, descricao) values (?, ?,?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-
-			stmt.setString(1, dangeon.getNome());
+			stmt.setInt(1, dangeon.getMonstro().getId());
+			stmt.setString(2, dangeon.getNome());
 			stmt.setString(3, dangeon.getDescricao());
 			stmt.execute();
 			stmt.close();
