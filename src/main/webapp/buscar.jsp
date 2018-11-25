@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="AlterarMestreServlet" method="get">
-Digite o id do produto: <br /> 
+Digite o id do Mestre: <br /> 
 	<input type="text" name="id"> 
 	<p> 
 	<input type="submit" name="BTEnvia" value="Buscar"> 
