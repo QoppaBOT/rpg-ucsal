@@ -63,6 +63,7 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 		Integer id_usuario = Integer.parseInt(idusuario);
 		Usuario usuario = usuarioDAO.getUsuario(id_usuario);
 		personagem.setUsuario(usuario);
+		
 		PersonagemDAO dao = new PersonagemDAO();
 		dao.inserir(personagem);
 
