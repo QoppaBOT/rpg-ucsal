@@ -55,10 +55,12 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 		Integer id_raca = Integer.parseInt(idraca);
 		Raca raca = racaDAO.getRaca(id_raca);
 		personagem.setRaca(raca);
+		
 		SalaDAO salaDAO = new SalaDAO();
 		Integer id_sala = Integer.parseInt(idsala);
 		Sala sala = salaDAO.getSala(id_sala);
 		personagem.setSala(sala);
+		
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		Integer id_usuario = Integer.parseInt(idusuario);
 		Usuario usuario = usuarioDAO.getUsuario(id_usuario);

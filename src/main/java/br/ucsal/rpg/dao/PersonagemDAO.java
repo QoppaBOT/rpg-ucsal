@@ -44,12 +44,12 @@ public class PersonagemDAO {
 
 	}
 
-	public Personagem getPersonagem(Long id) {
+	public Personagem getPersonagem(Integer id) {
 		Personagem personagem = null;
 		try {
 			String sql = "select * from personagem where idPersonagem=?";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
@@ -129,7 +129,7 @@ public class PersonagemDAO {
 	public void remove(Integer id) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("delete from personagem where idPersonagem=?");
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
