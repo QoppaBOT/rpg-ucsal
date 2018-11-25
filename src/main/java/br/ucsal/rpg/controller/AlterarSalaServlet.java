@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ucsal.rpg.dao.MestreDAO;
 import br.ucsal.rpg.dao.SalaDAO;
+import br.ucsal.rpg.model.Mestre;
 import br.ucsal.rpg.model.Sala;
 
 @WebServlet("/AlterarSalaServlet")
@@ -46,16 +48,21 @@ public class AlterarSalaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		// Integer mestre_id = request.getParameter("mestre_id");
+		String idmestre = request.getParameter("mestre");
 		String nome = request.getParameter("nome");
 		String senha = request.getParameter("senha");
 		String descricao = request.getParameter("descricao");
 		Sala sala = new Sala();
 		sala.setId(id);
-		// sala.setMestre(mestre);
 		sala.setNome(nome);
 		sala.setDescricao(descricao);
 		sala.setSenha(senha);
+
+		MestreDAO mestreDAO = new MestreDAO();
+		Integer idmest = Integer.parseInt(idmestre);
+		Mestre mestre = mestreDAO.getMestre(idmest);
+		sala.setMestre(mestre);
+
 		SalaDAO dao = new SalaDAO();
 		dao.altera(sala);
 
