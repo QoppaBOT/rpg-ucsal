@@ -40,6 +40,19 @@ public class AlterarPersonagemServlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		PersonagemDAO dao = new PersonagemDAO();
 		Personagem personagem = dao.getPersonagem(id);
+		
+		RacaDAO rdao = new RacaDAO();
+		List<Raca> raca = rdao.getLista();
+		request.setAttribute("raca", raca);
+		
+		SalaDAO sdao = new SalaDAO();
+		List<Sala> sala = sdao.getLista();
+		request.setAttribute("sala", sala);
+
+		UsuarioDAO udao = new UsuarioDAO();
+		List<Usuario> usuario = udao.getLista();
+		request.setAttribute("usuario", usuario);
+		
 		request.setAttribute("personagem", personagem);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("AlterarPersonagemForm.jsp");
 		dispatcher.forward(request, response);

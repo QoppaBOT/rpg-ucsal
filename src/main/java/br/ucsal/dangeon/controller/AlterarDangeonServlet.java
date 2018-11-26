@@ -42,6 +42,7 @@ public class AlterarDangeonServlet extends HttpServlet {
 		DangeonDAO dao = new DangeonDAO();
 		Dangeon dangeon = dao.getDangeon(id);
 		request.setAttribute("dangeon", dangeon);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("AlterarDangeonForm.jsp");
 		dispatcher.forward(request, response);
 	}

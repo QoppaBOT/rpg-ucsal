@@ -10,7 +10,7 @@
 <body>
 	<h1>FORMULARIO ALTERAR DANGEON</h1>
 	<form action="AlterarDangeonServlet" method="post">
-		<input type="hidden" name="id" value="${mestre.id}">
+		<input type="hidden" name="id" value="${monstro.id}">
 		Monstro:
 	<select name="idMonstro" >
 			<option value="" selected>Selecione</option>
