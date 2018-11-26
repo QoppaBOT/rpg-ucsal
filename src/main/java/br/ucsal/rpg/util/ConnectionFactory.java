@@ -10,7 +10,7 @@ public class ConnectionFactory {
 
 	private static Connection connection = null;
 
-	private String conStr = "jdbc:postgresql://localhost:6543/rpg";
+	private String conStr = "jdbc:postgresql://localhost:5432/rpg";
 	private String usuario = "postgres";
 	private String senha = "postgresql";
 
