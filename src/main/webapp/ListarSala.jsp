@@ -11,7 +11,11 @@
 		<h3>lista de Sala</h3>
 		<ul>
 			<c:forEach var="sala" items="${sala}"> 
-				Nome:<li>${raca.nome}</li>
+				Nome:<li>${sala.nome}</li>
+				Descrição:<li>${sala.descricao}</li>
+				Mestre:<li>${sala.nome}</li>
+				Dangeon:<li>${sala.nome}</li>
+				
 				<a href="AlterarSalaServlet?id=${sala.id}" type="submit">Editar</a>
 				<a href="DeletarSalaServlet?id=${sala.id}" type="submit">Excluir</a>
 			</c:forEach>

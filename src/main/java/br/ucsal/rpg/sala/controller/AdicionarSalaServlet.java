@@ -55,7 +55,7 @@ public class AdicionarSalaServlet extends HttpServlet {
 		SalaDAO dao = new SalaDAO();
 		dao.inserir(sala);
 
-		response.sendRedirect("ListarMestreServlet");
+		response.sendRedirect("ListarSalaServlet");
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
