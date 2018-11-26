@@ -12,9 +12,9 @@
 	<form action="AlterarDangeonServlet" method="post">
 		<input type="hidden" name="id" value="${mestre.id}">
 		Monstro:
-	<select name="monstro" >
+	<select name="idMonstro" >
 			<option value="" selected>Selecione</option>
-			<c:forEach var="monstro" items="${lista}">
+			<c:forEach var="monstro" items="${monstro}">
 				<option value="${monstro.id}">${monstro.nome}</option>
 			</c:forEach>
 		</select>

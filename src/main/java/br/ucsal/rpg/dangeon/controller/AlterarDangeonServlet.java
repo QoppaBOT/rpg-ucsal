@@ -34,6 +34,11 @@ public class AlterarDangeonServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		MonstroDAO mdao = new MonstroDAO();
+		List<Monstro> monstro = mdao.getLista();
+		request.setAttribute("monstro", monstro);
+		
 		DangeonDAO dao = new DangeonDAO();
 		Dangeon dangeon = dao.getDangeon(id);
 		request.setAttribute("dangeon", dangeon);

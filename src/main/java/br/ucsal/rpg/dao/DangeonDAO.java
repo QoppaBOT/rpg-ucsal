@@ -77,7 +77,7 @@ public class DangeonDAO {
 	}
 
 	public void altera(Dangeon dangeon) {
-		String sql = "update dangeon set idMontro?, nome=?, descricao=? where iddangeon=?";
+		String sql = "update dangeon set idMonstro=?, nome=?, descricao=? where iddangeon=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, dangeon.getMonstro().getId());
