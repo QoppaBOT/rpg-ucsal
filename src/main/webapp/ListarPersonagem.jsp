@@ -15,7 +15,6 @@
 				<li>${personagem.maiorPersonalidade}</li>		
 				<li>${personagem.pontosDeVida}</li>			
 				<li>${personagem.pontosDeEnergia}</li>			
-				<li>${personagem.xP}</li>			
 				<li>${personagem.level}</li>	
 				<li>${personagem.raca}</li>	
 				<li>${personagem.sala}</li>	

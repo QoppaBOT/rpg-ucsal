@@ -18,7 +18,7 @@
 		level:<br> <input type="text" name="level"><br>
 	Usuario:
 	  <select name="usuario" >
-		<option value="1" selected>Selecione</option>
+		<option value="" selected>Selecione</option>
 					<c:forEach var="usuario" items="${usuario}"> 
 					<option value="${usuario.id}">${usuario.nome}</option>
 			</c:forEach>
@@ -27,7 +27,7 @@
 		<br>
 		Sala:
 		  <select name="sala" >
-		<option value="1" selected>Selecione</option>
+		<option value="" selected>Selecione</option>
 			<c:forEach var="sala" items="${sala}">
 				<option value="${sala.id}">${sala.nome}</option>
 			</c:forEach>
@@ -36,7 +36,7 @@
 		<br>
 		Raca:
 			  <select name="raca" >
-		<option value="1" selected>Selecione</option>
+		<option value="" selected>Selecione</option>
 			<c:forEach var="raca" items="${raca}">
 				<option value="${raca.id}">${raca.nome}</option>
 			</c:forEach>

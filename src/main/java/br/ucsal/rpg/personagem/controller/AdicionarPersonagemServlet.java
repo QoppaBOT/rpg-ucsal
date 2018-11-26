@@ -1,6 +1,7 @@
 package br.ucsal.rpg.personagem.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,7 +41,7 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 		String maiorPersonalidade = request.getParameter("maiorPersonalidade");
 		Integer pontosDeVida = Integer.parseInt(request.getParameter("pontosDeVida"));
 		Integer pontosDeEnergia = Integer.parseInt(request.getParameter("pontosDeEnergia"));
-		Integer xP = Integer.parseInt(request.getParameter("xp"));
+		Integer xP = Integer.parseInt(request.getParameter("xP"));
 		Integer level = Integer.parseInt(request.getParameter("level"));
 
 		Personagem personagem = new Personagem();
@@ -74,6 +75,19 @@ public class AdicionarPersonagemServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		RacaDAO rdao = new RacaDAO();
+		List<Raca> raca = rdao.getLista();
+		request.setAttribute("raca", raca);
+		
+		SalaDAO dao = new SalaDAO();
+		List<Sala> sala = dao.getLista();
+		request.setAttribute("sala", sala);
+
+		UsuarioDAO udao = new UsuarioDAO();
+		List<Usuario> usuario = udao.getLista();
+		request.setAttribute("usuario", usuario);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("AdicionarPersonagemForm.jsp");
 		dispatcher.forward(request, response);
 	}

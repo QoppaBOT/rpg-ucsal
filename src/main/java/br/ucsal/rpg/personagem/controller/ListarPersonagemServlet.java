@@ -39,6 +39,7 @@ public class ListarPersonagemServlet extends HttpServlet {
 		PersonagemDAO dao = new PersonagemDAO();
 		List<Personagem> personagem = dao.getLista();
 		request.setAttribute("personagem", personagem);
+		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListarPersonagem.jsp");
 		requestDispatcher.forward(request, response);
 	}

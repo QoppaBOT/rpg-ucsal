@@ -22,7 +22,7 @@ public class PersonagemDAO {
 	}
 
 	public void inserir(Personagem personagem) {
-		String sql = "insert into personagem (idusuario, idraca, idsala, nome,maiorPersonalidade, pontosDeVida, pontosDeEnergia, XP, levelxp) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into personagem (idusuario, idraca, idsala, nome,maiorPersonalidade, pontosDeVida, pontosDeEnergia, xp, levelxp) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
