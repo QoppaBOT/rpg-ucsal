@@ -11,13 +11,13 @@
 		<h3>lista de raca</h3>
 		<ul>
 			<c:forEach var="raca" items="${raca}"> 
-				Nome:<li>${raca.nome}</li>
-				Forca:<li>${raca.forca}</li>	
-				Destreza:<li>${raca.destreza}</li>			
-				Constituicao:<li>${raca.contituicao}</li>			
-				Inteligencia:<li>${raca.inteligencia}</li>			
-				Percepção:<li>${raca.percepicao}</li>			
-				Carisma: <li>${raca.carisma}</li>		
+				Nome:<li>${raca.nome}</li>	<br>
+				Forca:<li>${raca.forca}</li>		<br>
+				Destreza:<li>${raca.destreza}</li>			<br>	
+				Constituicao:<li>${raca.contituicao}</li>	<br>			
+				Inteligencia:<li>${raca.inteligencia}</li>		<br>		
+				Percepção:<li>${raca.percepicao}</li>		<br>		
+				Carisma: <li>${raca.carisma}</li>			<br>
 					
 				<a href="AlterarRacaServlet?id=${raca.id}" type="submit">Editar</a>
 				<a href="DeletarRacaServlet?id=${raca.id}" type="submit">Excluir</a>

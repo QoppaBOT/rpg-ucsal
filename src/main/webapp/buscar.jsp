@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="AlterarMestreServlet" method="get">
+<form action="ListarMestreServlet" method="get">
 Digite o id do Mestre: <br /> 
 	<input type="text" name="id"> 
 	<p> 

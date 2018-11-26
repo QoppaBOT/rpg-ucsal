@@ -11,9 +11,9 @@
 		<h3>lista de monstros</h3>
 		<ul>
 			<c:forEach var="monstro" items="${monstro}"> 
-				<li>${monstro.id}</li>
-				Nome:<li>${monstro.nome}</li>	
-				Descrição:<li>${monstro.descricao}</li>			
+				<li>${monstro.id}</li>	<br>
+				Nome:<li>${monstro.nome}</li>		<br>
+				Descrição:<li>${monstro.descricao}</li>		<br>		
 				
 				<a href="DeletarMonstroServlet?id=${monstro.id}" type="submit">Excluir</a>
 				<a href="AlterarMonstroServlet?id=${monstro.id}" type="submit">Alterar</a>

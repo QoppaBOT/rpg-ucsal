@@ -16,7 +16,7 @@
 		Senha:<br> <input type="password" name="Senha" value="${sala.senha}"><br>
 		Descrição:<br> <input type="text" name="descricao" value="${sala.descricao}"><br>
 		Mestre:
-		<select name="mestre" value="${sala.mestre}">
+		<select name="mestre">
 			<option value="" selected>Selecione</option>
 			<c:forEach var="mestre" items="${mestre}">
 				<option value="${mestre.id}">${mestre.nome}</option>
@@ -24,7 +24,7 @@
 		</select>
 		<br>
 		Dangeon: 
-		<select name="dangeon" value="${sala.dangeon}">
+		<select name="dangeon">
 			<option value="" selected>Selecione</option>
 			<c:forEach var="dangeon" items="${dangeon}">
 				<option value="${dangeon.id}">${dangeon.nome}</option>

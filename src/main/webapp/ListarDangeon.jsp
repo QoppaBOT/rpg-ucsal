@@ -11,9 +11,9 @@
 		<h3>lista de Dangeon</h3>
 		<ul>
 			<c:forEach var="dangeon" items="${dangeon}"> 
-				<li>${dangeon.id}</li>
-				Nome:<li>${dangeon.nome}</li>	
-				Descrição:<li>${dangeon.descricao}</li>			
+				<li>${dangeon.id}</li>	<br>
+				Nome:<li>${dangeon.nome}</li>		<br>
+				Descrição:<li>${dangeon.descricao}</li>		<br>		
 			<%--    <a href="AlterarDangeonServlet?id=${dangeon.id}" type="submit">Editar</a> --%>			
 					<a href="DeletarDangeonServlet?id=${dangeon.id}" type="submit">Excluir</a>
 			</c:forEach>

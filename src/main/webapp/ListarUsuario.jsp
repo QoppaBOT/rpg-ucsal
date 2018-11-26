@@ -11,8 +11,8 @@
 		<h3>lista de Usuario</h3>
 		<ul>
 			<c:forEach var="usuario" items="${usuario}"> 
-				Nome:<li>${usuario.nome}</li>
-				Email:<li>${usuario.email}</li>			
+				Nome:<li>${usuario.nome}</li>	<br>
+				Email:<li>${usuario.email}</li>		<br>		
 				<a href="AlterarUsuarioServlet?id=${usuario.id}" type="submit">Editar</a>
 				<a href="DeletarUsuarioServlet?id=${usuario.id}" type="submit">Excluir</a>
 			</c:forEach>

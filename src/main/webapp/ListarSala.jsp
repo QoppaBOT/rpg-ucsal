@@ -11,10 +11,10 @@
 		<h3>lista de Sala</h3>
 		<ul>
 			<c:forEach var="sala" items="${sala}"> 
-				Nome:<li>${sala.nome}</li>
-				Descrição:<li>${sala.descricao}</li>
-				Mestre:<li>${sala.nome}</li>
-				Dangeon:<li>${sala.nome}</li>
+				Nome:<li>${sala.nome}</li>	<br>
+				Descrição:<li>${sala.descricao}</li>	<br>
+				Mestre:<li>${sala.nome}</li>	<br>
+				Dangeon:<li>${sala.nome}</li>	<br>
 				
 				<%-- <a href="AlterarSalaServlet?id=${sala.id}" type="submit">Editar</a> --%>
 				<a href="DeletarSalaServlet?id=${sala.id}" type="submit">Excluir</a>

@@ -11,8 +11,8 @@
 		<h3>lista de mestre</h3>
 		<ul>
 			<c:forEach var="mestre" items="${mestre}"> 
-				Nome:<li>${mestre.nome}</li>
-				Descricao:<li>${mestre.descricao}</li>			
+				Nome:<li>${mestre.nome}</li>	<br>
+				Descricao:<li>${mestre.descricao}</li>		<br>		
 				<a href="AlterarMestreServlet?id=${mestre.id}" type="submit">Editar</a>
 				<a href="DeletarMestreServlet?id=${mestre.id}" type="submit">Excluir</a>
 			</c:forEach>
