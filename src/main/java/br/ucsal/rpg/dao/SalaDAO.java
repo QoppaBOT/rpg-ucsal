@@ -86,7 +86,7 @@ public class SalaDAO {
 			stmt.setInt(2, sala.getDangeon().getId());
 			stmt.setString(3, sala.getNome());
 			stmt.setString(4, sala.getDescricao());
-			stmt.setLong(5, sala.getId());
+			stmt.setInt(5, sala.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -97,7 +97,7 @@ public class SalaDAO {
 	public void remove(int id) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("delete from sala where idSala=?");
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
