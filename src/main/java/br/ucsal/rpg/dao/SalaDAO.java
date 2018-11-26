@@ -78,6 +78,29 @@ public class SalaDAO {
 		}
 	}
 
+	/*public List<Sala> getListaInner() {
+		try {
+			List<Sala> salas = new ArrayList<>();
+			String sql = "select t1.nome, t2.nome, t3.nome\r\n" + "from sala t1 \r\n"
+					+ "inner join dangeon t2 on t1.idsala = t2.iddangeon\r\n"
+					+ "inner join monstro t3 on t2.idmonstro=t3.idmonstro";
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Sala sala = new Sala();
+				sala.setId(rs.getInt("idSala"));
+				sala.getDangeon().setId(rs.getInt("dangeon"));
+				sala.getMestre().setId(rs.getInt("mestre"));
+				salas.add(sala);
+			}
+			rs.close();
+			stmt.close();
+			return salas;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}*/
+
 	public void altera(Sala sala) {
 		String sql = "update sala set idMestre=?,idDangeon=?, nome=?, descricao=? where idSala=?";
 		try {
@@ -104,4 +127,5 @@ public class SalaDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
 }

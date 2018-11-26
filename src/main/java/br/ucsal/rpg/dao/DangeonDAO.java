@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ucsal.rpg.model.Dangeon;
+import br.ucsal.rpg.model.Monstro;
 import br.ucsal.rpg.util.ConnectionFactory;
 
 public class DangeonDAO {
@@ -66,6 +67,31 @@ public class DangeonDAO {
 				dangeon.setId(rs.getInt("iddangeon"));
 				dangeon.setNome(rs.getString("nome"));
 				dangeon.setDescricao(rs.getString("descricao"));
+				dangeons.add(dangeon);
+			}
+			rs.close();
+			stmt.close();
+			return dangeons;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public List<Dangeon> getListaInner() {
+		try {
+			List<Dangeon> dangeons = new ArrayList<>();
+			String sql = "SELECT dangeon.nome, monstro.nome\r\n" + "FROM dangeon\r\n"
+					+ "INNER JOIN monstro ON dangeon.iddangeon = monstro.idmonstro;";
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Dangeon dangeon = new Dangeon();
+				dangeon.setNome(rs.getString("nome"));
+
+				Monstro monstro = new Monstro();
+				monstro.setNome(rs.getString("nome"));
+				dangeon.setMonstro(monstro);
+
 				dangeons.add(dangeon);
 			}
 			rs.close();
