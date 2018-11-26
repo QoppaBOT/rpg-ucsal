@@ -11,9 +11,11 @@
 	<h1>FORMULARIO ADICIONAR DANGEON</h1>
 	<form action="AdicionarDangeonServlet" method="post">
 	Monstro:
-	<select name="monstro" >
-			<option value="" selected>Selecione</option>
-			<c:forEach var="monstro" items="${lista}">
+	<select name="monstro">
+			<option value="1" selected>Selecione</option>
+			<option value="2" selected>Selecione</option>
+			
+			<c:forEach var="monstro" items="${monstro}">
 				<option value="${monstro.id}">${monstro.nome}</option>
 			</c:forEach>
 		</select>
