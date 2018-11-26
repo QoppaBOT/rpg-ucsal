@@ -1,6 +1,7 @@
 package br.ucsal.rpg.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,6 +50,9 @@ public class AdicionarDangeonServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		MonstroDAO dao = new MonstroDAO();
+		List<Monstro> monstro = dao.getLista();
+		request.setAttribute("monstro", monstro);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("AdicionarDangeonForm.jsp");
 		dispatcher.forward(request, response);
 	}

@@ -19,7 +19,7 @@ public class DangeonDAO {
 	}
 
 	public void inserir(Dangeon dangeon) {
-		String sql = "insert into Dangeon (idMontro, nome, descricao) values (?,?,?)";
+		String sql = "insert into Dangeon (idMonstro, nome, descricao) values (?,?,?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, dangeon.getMonstro().getId());
