@@ -34,15 +34,6 @@ public class Personagem {
 		this.level = level;
 	}
 
-
-
-	@Override
-	public String toString() {
-		return "Personagem [id=" + id + ", nome=" + nome + ", Raca=" + Raca + ", usuario=" + usuario + ", sala=" + sala
-				+ ", maiorPersonalidade=" + maiorPersonalidade + ", pontosDeVida=" + pontosDeVida + ", pontosDeEnergia="
-				+ pontosDeEnergia + ", XP=" + XP + ", level=" + level + "]";
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -127,6 +118,13 @@ public class Personagem {
 	 */
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	@Override
+	public String toString() {
+		return "Personagem [id=" + id + ", nome=" + nome + ", Raca=" + Raca + ", usuario=" + usuario + ", sala=" + sala
+				+ ", maiorPersonalidade=" + maiorPersonalidade + ", pontosDeVida=" + pontosDeVida + ", pontosDeEnergia="
+				+ pontosDeEnergia + ", XP=" + XP + ", level=" + level + "]";
 	}
 
 }

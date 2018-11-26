@@ -52,4 +52,10 @@ public class Monstro {
 		this.descricao = descricao;
 	}
 
+	@Override
+	public String toString() {
+		return "Monstro [id=" + id + ", nome=" + nome + ", pontosDeVida=" + pontosDeVida + ", descricao=" + descricao
+				+ "]";
+	}
+
 }

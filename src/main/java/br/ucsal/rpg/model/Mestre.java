@@ -41,4 +41,9 @@ public class Mestre {
 		this.descricao = descricao;
 	}
 
+	@Override
+	public String toString() {
+		return "Mestre [id=" + id + ", nome=" + nome + ", descricao=" + descricao + "]";
+	}
+
 }

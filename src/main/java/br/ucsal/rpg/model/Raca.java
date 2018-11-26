@@ -92,4 +92,11 @@ public class Raca {
 		this.carisma = carisma;
 	}
 
+	@Override
+	public String toString() {
+		return "Raca [id=" + id + ", nome=" + nome + ", forca=" + forca + ", destreza=" + destreza + ", contituicao="
+				+ contituicao + ", inteligencia=" + inteligencia + ", percepicao=" + percepicao + ", carisma=" + carisma
+				+ "]";
+	}
+
 }

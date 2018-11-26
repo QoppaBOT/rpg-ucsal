@@ -56,4 +56,9 @@ public class Dangeon {
 		this.monstro = monstro;
 	}
 
+	@Override
+	public String toString() {
+		return "Dangeon [id=" + id + ", nome=" + nome + ", monstro=" + monstro + ", descricao=" + descricao + "]";
+	}
+
 }

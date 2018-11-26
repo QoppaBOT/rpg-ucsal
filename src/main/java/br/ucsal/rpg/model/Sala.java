@@ -65,18 +65,18 @@ public class Sala {
 		this.descricao = descricao;
 	}
 
-	/**
-	 * @return the dangeon
-	 */
 	public Dangeon getDangeon() {
 		return dangeon;
 	}
 
-	/**
-	 * @param dangeon the dangeon to set
-	 */
 	public void setDangeon(Dangeon dangeon) {
 		this.dangeon = dangeon;
+	}
+
+	@Override
+	public String toString() {
+		return "Sala [id=" + id + ", mestre=" + mestre + ", dangeon=" + dangeon + ", nome=" + nome + ", senha=" + senha
+				+ ", descricao=" + descricao + "]";
 	}
 
 }

@@ -6,9 +6,8 @@ public class Usuario {
 	private String senha;
 	private String email;
 
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", senha=" + senha + ", email=" + email + "]";
+	public Usuario() {
+		super();
 	}
 
 	public Usuario(Integer id, String nome, String senha, String email) {
@@ -17,10 +16,6 @@ public class Usuario {
 		this.nome = nome;
 		this.senha = senha;
 		this.email = email;
-	}
-
-	public Usuario() {
-		super();
 	}
 
 	public Integer getId() {
@@ -53,6 +48,11 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nome=" + nome + ", senha=" + senha + ", email=" + email + "]";
 	}
 
 }
