@@ -51,3 +51,13 @@ VALUES(1,1,'medieval',123,'mundo de guerra');
 INSERT INTO Personagem (idUsuario, idraca, idSala, nome, maiorPersonalidade,pontosDeVida, pontosDeEnergia, xp , Levelxp)
 VALUES (1, 2,1,'Qoppa','Simples',100,100,50,1),
 (2, 2,1,'Huginho','Ladrao Todo',100,100,50,1);
+
+--------------------------
+SELECT dangeon.nome, monstro.nome
+FROM dangeon
+INNER JOIN monstro ON dangeon.iddangeon = monstro.idmonstro;
+
+select t1.nome, t2.nome, t3.nome
+from sala t1 
+inner join dangeon t2 on t1.idsala = t2.iddangeon
+inner join monstro t3 on t2.idmonstro=t3.idmonstro
