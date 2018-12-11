@@ -7,11 +7,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">RPG</a>
+          <a class="navbar-brand" href="#">o_O</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/index.jsp">Inicio</a></li>
+            <li class="active"><a href="/login.jsp">Inicio</a></li>
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dungeons <span class="caret"></span></a>
@@ -56,8 +56,8 @@
                         <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/AdicionarUsuarioServlet">Listar</a></li>
-                <li><a href=/ListarUsuarioServlet>Nova</a></li>
+                <li><a href=/ListarUsuarioServlet>Listar</a></li>
+                <li><a href="/AdicionarUsuarioServlet">Nova</a></li>
               </ul>
             </li>
           </ul>

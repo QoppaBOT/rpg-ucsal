@@ -48,7 +48,7 @@ public class LoginController extends HttpServlet {
 				request.getRequestDispatcher("ListarSala.jsp").forward(request, response);
 			}else {
 				System.out.println("NãO LOGOU");
-				response.sendRedirect("/login");
+				response.sendRedirect("/login.jsp");
 			}
 			
 			

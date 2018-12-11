@@ -1,4 +1,4 @@
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -23,6 +23,7 @@
 	
 		<input type="submit" value="Submit"><br>
 	</form>
+		
 		<c:import url="rodape.jsp"></c:import>
 
 	<script

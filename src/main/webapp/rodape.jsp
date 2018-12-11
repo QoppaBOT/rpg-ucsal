@@ -4,6 +4,6 @@
 
 <footer class="footer">
       <div class="container">
-        <p class="text-muted">RPG</p>
+        <p class="text-muted">o_O</p>
       </div>
 </footer>
