@@ -16,36 +16,50 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dungeons <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="../java/br/ucsal/dangeon/controller/ListarDangeonServlet.java">Listar</a></li>
-                <li><a href="/geu/blocos?q=new">Novo</a></li>
+                <li><a href="/ListarDangeonServlet">Listar</a></li>
+                <li><a href="/AdicionarDangeonServlet">Novo</a></li>
               </ul>
             </li>
             
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tipos <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mestre <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/geu/tipos">Listar</a></li>
-                <li><a href="/geu/tipos?q=new">Novo</a></li>
+                <li><a href="/ListarMestreServlet">Listar</a></li>
+                <li><a href="/AdicionarMestreServlet">Novo</a></li>
               </ul>
             </li>
             
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espacos <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monstro <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/geu/espacos">Listar</a></li>
-                <li><a href="/geu/espacos?q=new">Novo</a></li>
+                <li><a href="/ListarMonstroServlet">Listar</a></li>
+                <li><a href="/AdicionarMonstroServlet">Novo</a></li>
               </ul>
             </li>
             
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reserva <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Personagem <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/geu/reservas">Listar</a></li>
-                <li><a href="/geu/reservas?q=new">Nova</a></li>
+                <li><a href="/ListarPersonagemServlet">Listar</a></li>
+                <li><a href="/AdicionarPersonagemServlet">Nova</a></li>
               </ul>
             </li>
             
+                 <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sala <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/ListarSalaServlet">Listar</a></li>
+                <li><a href="/AdicionarSalaServlet">Nova</a></li>
+              </ul>
+            </li>
             
+                        <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/AdicionarUsuarioServlet">Listar</a></li>
+                <li><a href=/ListarUsuarioServlet>Nova</a></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
