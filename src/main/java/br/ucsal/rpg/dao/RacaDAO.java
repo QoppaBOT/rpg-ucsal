@@ -19,7 +19,7 @@ public class RacaDAO {
 	}
 
 	public void inserir(Raca raca) {
-		String sql = "insert into raca (nome, forca, destreza, contituicao, inteligencia, percepicao, carisma) values (?,?, ?, ?, ?, ?, ?)";
+		String sql = "insert into raca (nome, forca, destreza, constituicao, inteligencia, percepicao, carisma) values (?,?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -52,7 +52,7 @@ public class RacaDAO {
 				raca.setId(rs.getInt("idRaca"));
 				raca.setForca(rs.getInt("forca"));
 				raca.setDestreza(rs.getInt("destreza"));
-				raca.setContituicao(rs.getInt("contituicao"));
+				raca.setContituicao(rs.getInt("constituicao"));
 				raca.setInteligencia(rs.getInt("inteligencia"));
 				raca.setPercepicao(rs.getInt("percepicao"));
 				raca.setCarisma(rs.getInt("carisma"));
@@ -77,7 +77,7 @@ public class RacaDAO {
 				raca.setId(rs.getInt("idRaca"));
 				raca.setForca(rs.getInt("forca"));
 				raca.setDestreza(rs.getInt("destreza"));
-				raca.setContituicao(rs.getInt("contituicao"));
+				raca.setContituicao(rs.getInt("constituicao"));
 				raca.setInteligencia(rs.getInt("inteligencia"));
 				raca.setPercepicao(rs.getInt("percepicao"));
 				raca.setCarisma(rs.getInt("carisma"));
@@ -92,7 +92,7 @@ public class RacaDAO {
 	}
 
 	public void altera(Raca raca) {
-		String sql = "update raca set nome=?, forca=?, destreza=?, contituicao=?, inteligencia=?, percepicao=?, carisma=? where idRaca=?";
+		String sql = "update raca set nome=?, forca=?, destreza=?, constituicao=?, inteligencia=?, percepicao=?, carisma=? where idRaca=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, raca.getNome());
