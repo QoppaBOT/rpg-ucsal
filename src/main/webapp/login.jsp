@@ -18,7 +18,7 @@
 	<c:import url="topo.jsp"></c:import>
 	<div class="container">
 		<div class="page-header">
-			<h1>Login</h1>
+			<h1>LOGIN</h1>
 		</div>
 		<form action="login" method="post">
 			Usuario:<input type="text" name="usuario"  /><br> 
